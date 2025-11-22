@@ -1,5 +1,25 @@
 import React, { useState, useMemo } from 'react';
-import { Search, MapPin, Globe, Filter, ExternalLink, Database, Code, Calendar, Tag, X, Send, Star, Download, Users, Award, Layers, Moon, Sun, Loader } from 'lucide-react';
+import {
+  Search,
+  MapPin,
+  Globe,
+  Filter,
+  ExternalLink,
+  Database,
+  Code,
+  Calendar,
+  Tag,
+  X,
+  Send,
+  Star,
+  Download,
+  Users,
+  Award,
+  Layers,
+  Moon,
+  Sun,
+  Loader,
+} from 'lucide-react';
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -26,11 +46,35 @@ const App = () => {
     { id: 'realestate', name: 'Real Estate & Property', icon: '🏘️' },
     { id: 'research', name: 'Research & Academia', icon: '🔬' },
     { id: 'opensource', name: 'Open Source Tools', icon: '💻' },
-    { id: 'basemaps', name: 'Basemaps & Imagery', icon: '🗺️' }
+    { id: 'basemaps', name: 'Basemaps & Imagery', icon: '🗺️' },
   ];
 
-  const formats = ['all', 'WMS', 'WFS', 'WCS', 'GeoJSON', 'Shapefile', 'GeoTIFF', 'KML', 'REST API', 'CSV', 'PostGIS', 'NetCDF', 'HDF'];
-  const regions = ['all', 'Global', 'Africa', 'Asia', 'Europe', 'North America', 'South America', 'Oceania', 'Multi-Regional'];
+  const formats = [
+    'all',
+    'WMS',
+    'WFS',
+    'WCS',
+    'GeoJSON',
+    'Shapefile',
+    'GeoTIFF',
+    'KML',
+    'REST API',
+    'CSV',
+    'PostGIS',
+    'NetCDF',
+    'HDF',
+  ];
+  const regions = [
+    'all',
+    'Global',
+    'Africa',
+    'Asia',
+    'Europe',
+    'North America',
+    'South America',
+    'Oceania',
+    'Multi-Regional',
+  ];
 
   const products = [
     // Existing products...
@@ -42,7 +86,8 @@ const App = () => {
       type: 'Vector Data',
       coverage: 'Global',
       region: 'Global',
-      description: 'Collaborative mapping platform with free editable map data. Community-driven geographic database with worldwide coverage.',
+      description:
+        'Collaborative mapping platform with free editable map data. Community-driven geographic database with worldwide coverage.',
       pricing: 'Free',
       updateFrequency: 'Real-time',
       license: 'ODbL',
@@ -54,7 +99,7 @@ const App = () => {
       contact: 'community@openstreetmap.org',
       rating: 4.8,
       downloads: '10M+',
-      standards: ['OGC']
+      standards: ['OGC'],
     },
     {
       id: 2,
@@ -64,7 +109,8 @@ const App = () => {
       type: 'Desktop Software',
       coverage: 'Global',
       region: 'Global',
-      description: 'Professional open source GIS application for viewing, editing and analyzing geospatial data.',
+      description:
+        'Professional open source GIS application for viewing, editing and analyzing geospatial data.',
       pricing: 'Free',
       updateFrequency: 'Monthly',
       license: 'GPL',
@@ -76,7 +122,7 @@ const App = () => {
       contact: 'info@qgis.org',
       rating: 4.9,
       downloads: '5M+',
-      standards: ['OGC', 'GDAL']
+      standards: ['OGC', 'GDAL'],
     },
     {
       id: 3,
@@ -86,7 +132,8 @@ const App = () => {
       type: 'Satellite Imagery',
       coverage: 'Global',
       region: 'Global',
-      description: 'Free access to Sentinel satellite data including optical and radar imagery for environmental monitoring.',
+      description:
+        'Free access to Sentinel satellite data including optical and radar imagery for environmental monitoring.',
       pricing: 'Free',
       updateFrequency: 'Daily',
       license: 'Open',
@@ -98,7 +145,7 @@ const App = () => {
       contact: 'eohelp@copernicus.esa.int',
       rating: 4.7,
       downloads: '3M+',
-      standards: ['INSPIRE', 'ISO 19115']
+      standards: ['INSPIRE', 'ISO 19115'],
     },
     {
       id: 4,
@@ -108,19 +155,21 @@ const App = () => {
       type: 'Satellite Imagery',
       coverage: 'Global',
       region: 'Global',
-      description: 'Comprehensive Earth science data from NASA satellite missions including MODIS, Landsat, and ASTER.',
+      description:
+        'Comprehensive Earth science data from NASA satellite missions including MODIS, Landsat, and ASTER.',
       pricing: 'Free',
       updateFrequency: 'Daily',
       license: 'Public Domain',
       directLink: 'https://earthdata.nasa.gov',
-      apiDocs: 'https://earthdata.nasa.gov/eosdis/science-system-description/eosdis-components/earthdata-search',
+      apiDocs:
+        'https://earthdata.nasa.gov/eosdis/science-system-description/eosdis-components/earthdata-search',
       dataTypes: ['MODIS', 'Landsat', 'ASTER', 'VIIRS'],
       formats: ['HDF', 'GeoTIFF', 'NetCDF'],
       resolution: '250m-1km',
       contact: 'support@earthdata.nasa.gov',
       rating: 4.8,
       downloads: '5M+',
-      standards: ['ISO 19115', 'FGDC']
+      standards: ['ISO 19115', 'FGDC'],
     },
     {
       id: 5,
@@ -130,7 +179,8 @@ const App = () => {
       type: 'Species Data',
       coverage: 'Global',
       region: 'Global',
-      description: 'Free and open access to biodiversity data with over 2 billion species occurrence records.',
+      description:
+        'Free and open access to biodiversity data with over 2 billion species occurrence records.',
       pricing: 'Free',
       updateFrequency: 'Daily',
       license: 'CC0/CC-BY',
@@ -142,7 +192,7 @@ const App = () => {
       contact: 'info@gbif.org',
       rating: 4.6,
       downloads: '3M+',
-      standards: ['OGC']
+      standards: ['OGC'],
     },
     {
       id: 6,
@@ -152,7 +202,8 @@ const App = () => {
       type: 'Population Data',
       coverage: 'Global',
       region: 'Global',
-      description: 'Open spatial demographic datasets providing population distributions at high resolution.',
+      description:
+        'Open spatial demographic datasets providing population distributions at high resolution.',
       pricing: 'Free',
       updateFrequency: 'Annual',
       license: 'CC-BY',
@@ -164,7 +215,7 @@ const App = () => {
       contact: 'info@worldpop.org',
       rating: 4.5,
       downloads: '500K+',
-      standards: ['ISO 19115']
+      standards: ['ISO 19115'],
     },
     {
       id: 7,
@@ -174,7 +225,8 @@ const App = () => {
       type: 'Elevation Data',
       coverage: 'Multi-Regional',
       region: 'Multi-Regional',
-      description: 'High-resolution topography data and tools including lidar and photogrammetry point clouds.',
+      description:
+        'High-resolution topography data and tools including lidar and photogrammetry point clouds.',
       pricing: 'Free',
       updateFrequency: 'Continuous',
       license: 'Varies',
@@ -186,7 +238,7 @@ const App = () => {
       contact: 'info@opentopography.org',
       rating: 4.7,
       downloads: '800K+',
-      standards: ['OGC', 'ISO 19115']
+      standards: ['OGC', 'ISO 19115'],
     },
     {
       id: 8,
@@ -196,7 +248,8 @@ const App = () => {
       type: 'Environmental Data',
       coverage: 'Europe',
       region: 'Europe',
-      description: 'Comprehensive environmental data for Europe including air quality, water, biodiversity, and land use.',
+      description:
+        'Comprehensive environmental data for Europe including air quality, water, biodiversity, and land use.',
       pricing: 'Free',
       updateFrequency: 'Regular',
       license: 'EEA Standard',
@@ -208,7 +261,7 @@ const App = () => {
       contact: 'info@eea.europa.eu',
       rating: 4.4,
       downloads: '300K+',
-      standards: ['INSPIRE']
+      standards: ['INSPIRE'],
     },
     {
       id: 9,
@@ -218,7 +271,8 @@ const App = () => {
       type: 'Monitoring Platform',
       coverage: 'Global',
       region: 'Global',
-      description: 'Near real-time forest monitoring with deforestation alerts and tree cover change data.',
+      description:
+        'Near real-time forest monitoring with deforestation alerts and tree cover change data.',
       pricing: 'Free',
       updateFrequency: 'Weekly',
       license: 'Open',
@@ -230,7 +284,7 @@ const App = () => {
       contact: 'gfw@wri.org',
       rating: 4.6,
       downloads: '400K+',
-      standards: ['OGC']
+      standards: ['OGC'],
     },
     {
       id: 10,
@@ -240,7 +294,8 @@ const App = () => {
       type: 'Climate Data',
       coverage: 'Global',
       region: 'Global',
-      description: 'Access to NOAA archive of weather and climate data including temperature, precipitation, and extremes.',
+      description:
+        'Access to NOAA archive of weather and climate data including temperature, precipitation, and extremes.',
       pricing: 'Free',
       updateFrequency: 'Daily',
       license: 'Public Domain',
@@ -252,7 +307,7 @@ const App = () => {
       contact: 'ncdc.info@noaa.gov',
       rating: 4.5,
       downloads: '2M+',
-      standards: ['ISO 19115']
+      standards: ['ISO 19115'],
     },
     {
       id: 11,
@@ -262,7 +317,8 @@ const App = () => {
       type: 'Aerial Imagery',
       coverage: 'Event-based',
       region: 'Multi-Regional',
-      description: 'Open aerial imagery for humanitarian response and disaster relief operations.',
+      description:
+        'Open aerial imagery for humanitarian response and disaster relief operations.',
       pricing: 'Free',
       updateFrequency: 'Event-driven',
       license: 'CC-BY',
@@ -274,7 +330,7 @@ const App = () => {
       contact: 'info@hotosm.org',
       rating: 4.4,
       downloads: '150K+',
-      standards: ['OGC']
+      standards: ['OGC'],
     },
     {
       id: 12,
@@ -284,7 +340,8 @@ const App = () => {
       type: 'Vector Data',
       coverage: 'Global',
       region: 'Global',
-      description: 'Free vector and raster map data at multiple scales for cartography and GIS.',
+      description:
+        'Free vector and raster map data at multiple scales for cartography and GIS.',
       pricing: 'Free',
       updateFrequency: 'Quarterly',
       license: 'Public Domain',
@@ -296,7 +353,7 @@ const App = () => {
       contact: 'contact@naturalearthdata.com',
       rating: 4.7,
       downloads: '2M+',
-      standards: ['OGC']
+      standards: ['OGC'],
     },
     {
       id: 13,
@@ -306,7 +363,8 @@ const App = () => {
       type: 'Administrative Boundaries',
       coverage: 'Global',
       region: 'Global',
-      description: 'Database of global administrative areas with country, state, and local boundaries.',
+      description:
+        'Database of global administrative areas with country, state, and local boundaries.',
       pricing: 'Free',
       updateFrequency: 'Annual',
       license: 'Free (Non-commercial)',
@@ -318,7 +376,7 @@ const App = () => {
       contact: 'info@gadm.org',
       rating: 4.6,
       downloads: '1M+',
-      standards: ['ISO 19115']
+      standards: ['ISO 19115'],
     },
     {
       id: 14,
@@ -328,7 +386,8 @@ const App = () => {
       type: 'Database Extension',
       coverage: 'Global',
       region: 'Global',
-      description: 'Spatial database extension for PostgreSQL enabling storage and analysis of geographic data.',
+      description:
+        'Spatial database extension for PostgreSQL enabling storage and analysis of geographic data.',
       pricing: 'Free',
       updateFrequency: 'Quarterly',
       license: 'GPL',
@@ -340,7 +399,7 @@ const App = () => {
       contact: 'postgis-users@lists.osgeo.org',
       rating: 4.9,
       downloads: '5M+',
-      standards: ['OGC', 'SQL/MM']
+      standards: ['OGC', 'SQL/MM'],
     },
     {
       id: 15,
@@ -350,7 +409,8 @@ const App = () => {
       type: 'Software Library',
       coverage: 'Global',
       region: 'Global',
-      description: 'Translator library for 200+ raster and vector geospatial data formats.',
+      description:
+        'Translator library for 200+ raster and vector geospatial data formats.',
       pricing: 'Free',
       updateFrequency: 'Quarterly',
       license: 'MIT/X',
@@ -362,7 +422,7 @@ const App = () => {
       contact: 'gdal-dev@lists.osgeo.org',
       rating: 4.9,
       downloads: '10M+',
-      standards: ['OGC', 'ISO 19115']
+      standards: ['OGC', 'ISO 19115'],
     },
     {
       id: 16,
@@ -372,7 +432,8 @@ const App = () => {
       type: 'Map Server',
       coverage: 'Global',
       region: 'Global',
-      description: 'Open source server for sharing geospatial data via OGC web services.',
+      description:
+        'Open source server for sharing geospatial data via OGC web services.',
       pricing: 'Free',
       updateFrequency: 'Bi-annual',
       license: 'GPL',
@@ -384,7 +445,7 @@ const App = () => {
       contact: 'geoserver-users@lists.sourceforge.net',
       rating: 4.7,
       downloads: '1M+',
-      standards: ['OGC WMS', 'OGC WFS', 'OGC WCS']
+      standards: ['OGC WMS', 'OGC WFS', 'OGC WCS'],
     },
     {
       id: 17,
@@ -394,7 +455,8 @@ const App = () => {
       type: 'JavaScript Library',
       coverage: 'Global',
       region: 'Global',
-      description: 'Leading open source JavaScript library for mobile-friendly interactive maps.',
+      description:
+        'Leading open source JavaScript library for mobile-friendly interactive maps.',
       pricing: 'Free',
       updateFrequency: 'Regular',
       license: 'BSD-2-Clause',
@@ -406,7 +468,7 @@ const App = () => {
       contact: 'agafonkin@gmail.com',
       rating: 4.8,
       downloads: '15M+',
-      standards: ['Web Standards']
+      standards: ['Web Standards'],
     },
     {
       id: 18,
@@ -416,7 +478,8 @@ const App = () => {
       type: 'Mapping Platform',
       coverage: 'Global',
       region: 'Global',
-      description: 'Custom maps and location APIs for developers with high-quality basemaps.',
+      description:
+        'Custom maps and location APIs for developers with high-quality basemaps.',
       pricing: 'Freemium',
       updateFrequency: 'Continuous',
       license: 'Commercial',
@@ -428,7 +491,7 @@ const App = () => {
       contact: 'support@mapbox.com',
       rating: 4.5,
       downloads: 'Enterprise',
-      standards: ['Mapbox Vector Tiles']
+      standards: ['Mapbox Vector Tiles'],
     },
     {
       id: 19,
@@ -438,7 +501,8 @@ const App = () => {
       type: 'Vector Data',
       coverage: 'Global',
       region: 'Global',
-      description: 'Free GIS data for every country including administrative boundaries and climate data.',
+      description:
+        'Free GIS data for every country including administrative boundaries and climate data.',
       pricing: 'Free',
       updateFrequency: 'Occasional',
       license: 'Free',
@@ -450,7 +514,7 @@ const App = () => {
       contact: 'diva@diva-gis.org',
       rating: 4.3,
       downloads: '600K+',
-      standards: ['Standard GIS']
+      standards: ['Standard GIS'],
     },
     {
       id: 20,
@@ -460,7 +524,8 @@ const App = () => {
       type: 'Climate Data',
       coverage: 'Global',
       region: 'Global',
-      description: 'Global climate and weather data with historical and future climate projections.',
+      description:
+        'Global climate and weather data with historical and future climate projections.',
       pricing: 'Free',
       updateFrequency: 'Periodic',
       license: 'CC-BY-SA',
@@ -472,7 +537,7 @@ const App = () => {
       contact: 'info@worldclim.org',
       rating: 4.6,
       downloads: '800K+',
-      standards: ['ISO 19115']
+      standards: ['ISO 19115'],
     },
     {
       id: 21,
@@ -482,7 +547,8 @@ const App = () => {
       type: 'Climate Data',
       coverage: 'Global',
       region: 'Global',
-      description: 'Essential climate variables from satellite observations for climate research.',
+      description:
+        'Essential climate variables from satellite observations for climate research.',
       pricing: 'Free',
       updateFrequency: 'Annual',
       license: 'Open',
@@ -494,7 +560,7 @@ const App = () => {
       contact: 'info@esa-cci.org',
       rating: 4.5,
       downloads: '200K+',
-      standards: ['CF Conventions', 'ISO 19115']
+      standards: ['CF Conventions', 'ISO 19115'],
     },
     {
       id: 22,
@@ -504,7 +570,8 @@ const App = () => {
       type: 'Elevation Data',
       coverage: 'Near-Global',
       region: 'Multi-Regional',
-      description: 'Shuttle Radar Topography Mission 30m elevation data covering most of Earth.',
+      description:
+        'Shuttle Radar Topography Mission 30m elevation data covering most of Earth.',
       pricing: 'Free',
       updateFrequency: 'Static',
       license: 'Public Domain',
@@ -516,7 +583,7 @@ const App = () => {
       contact: 'lpdaac@usgs.gov',
       rating: 4.8,
       downloads: '5M+',
-      standards: ['ISO 19115']
+      standards: ['ISO 19115'],
     },
     {
       id: 23,
@@ -526,7 +593,8 @@ const App = () => {
       type: 'Satellite Imagery',
       coverage: 'Global',
       region: 'Global',
-      description: 'Daily satellite imagery of entire Earth at 3-5m resolution.',
+      description:
+        'Daily satellite imagery of entire Earth at 3-5m resolution.',
       pricing: 'Commercial',
       updateFrequency: 'Daily',
       license: 'Commercial',
@@ -538,7 +606,7 @@ const App = () => {
       contact: 'sales@planet.com',
       rating: 4.6,
       downloads: 'Enterprise',
-      standards: ['OGC']
+      standards: ['OGC'],
     },
     {
       id: 24,
@@ -548,7 +616,8 @@ const App = () => {
       type: 'Satellite Imagery',
       coverage: 'Global',
       region: 'Global',
-      description: 'High-resolution commercial satellite imagery up to 30cm resolution.',
+      description:
+        'High-resolution commercial satellite imagery up to 30cm resolution.',
       pricing: 'Commercial',
       updateFrequency: 'Daily',
       license: 'Commercial',
@@ -560,7 +629,7 @@ const App = () => {
       contact: 'info@maxar.com',
       rating: 4.7,
       downloads: 'Enterprise',
-      standards: ['OGC']
+      standards: ['OGC'],
     },
     {
       id: 25,
@@ -570,7 +639,8 @@ const App = () => {
       type: 'Analysis Platform',
       coverage: 'Global',
       region: 'Global',
-      description: 'Cloud-based platform for planetary-scale geospatial analysis.',
+      description:
+        'Cloud-based platform for planetary-scale geospatial analysis.',
       pricing: 'Free (Research)',
       updateFrequency: 'Continuous',
       license: 'Google Terms',
@@ -582,7 +652,7 @@ const App = () => {
       contact: 'earthengine@google.com',
       rating: 4.8,
       downloads: '500K+ users',
-      standards: ['Google EE']
+      standards: ['Google EE'],
     },
     {
       id: 26,
@@ -592,7 +662,8 @@ const App = () => {
       type: 'Vector Data',
       coverage: 'Global',
       region: 'Global',
-      description: 'Open map data for buildings, transportation networks, and places.',
+      description:
+        'Open map data for buildings, transportation networks, and places.',
       pricing: 'Free',
       updateFrequency: 'Monthly',
       license: 'CDLA Permissive',
@@ -604,7 +675,7 @@ const App = () => {
       contact: 'info@overturemaps.org',
       rating: 4.5,
       downloads: '300K+',
-      standards: ['OGC']
+      standards: ['OGC'],
     },
     {
       id: 27,
@@ -626,7 +697,7 @@ const App = () => {
       contact: 'developer@here.com',
       rating: 4.4,
       downloads: 'Enterprise',
-      standards: ['Industry Standard']
+      standards: ['Industry Standard'],
     },
     {
       id: 28,
@@ -648,7 +719,7 @@ const App = () => {
       contact: 'developer@tomtom.com',
       rating: 4.3,
       downloads: 'Enterprise',
-      standards: ['Industry Standard']
+      standards: ['Industry Standard'],
     },
     {
       id: 29,
@@ -658,7 +729,8 @@ const App = () => {
       type: 'JavaScript Library',
       coverage: 'Global',
       region: 'Global',
-      description: 'High-performance web mapping library with support for multiple sources.',
+      description:
+        'High-performance web mapping library with support for multiple sources.',
       pricing: 'Free',
       updateFrequency: 'Regular',
       license: 'BSD-2-Clause',
@@ -670,7 +742,7 @@ const App = () => {
       contact: 'openlayers-dev@lists.osgeo.org',
       rating: 4.6,
       downloads: '>1M+',
-      standards: ['Darwin Core', 'ISO 19115']
+      standards: ['Darwin Core', 'ISO 19115'],
     },
     {
       id: 30,
@@ -680,7 +752,8 @@ const App = () => {
       type: 'Cloud Platform',
       coverage: 'Global',
       region: 'Global',
-      description: 'Cloud-based mapping and analysis platform with extensive basemap collection.',
+      description:
+        'Cloud-based mapping and analysis platform with extensive basemap collection.',
       pricing: 'Commercial',
       updateFrequency: 'Continuous',
       license: 'Commercial',
@@ -692,7 +765,7 @@ const App = () => {
       contact: 'info@esri.com',
       rating: 4.5,
       downloads: 'Enterprise',
-      standards: ['OGC', 'Esri']
+      standards: ['OGC', 'Esri'],
     },
     {
       id: 31,
@@ -702,7 +775,8 @@ const App = () => {
       type: 'Processing Software',
       coverage: 'User-generated',
       region: 'Global',
-      description: 'Open source toolkit for processing drone imagery into maps and 3D models.',
+      description:
+        'Open source toolkit for processing drone imagery into maps and 3D models.',
       pricing: 'Free',
       updateFrequency: 'Regular',
       license: 'AGPL',
@@ -714,7 +788,7 @@ const App = () => {
       contact: 'info@opendronemap.org',
       rating: 4.5,
       downloads: '200K+',
-      standards: ['Standard GIS']
+      standards: ['Standard GIS'],
     },
     {
       id: 32,
@@ -736,7 +810,7 @@ const App = () => {
       contact: 'hdx@un.org',
       rating: 4.4,
       downloads: '400K+',
-      standards: ['HXL']
+      standards: ['HXL'],
     },
     {
       id: 33,
@@ -746,7 +820,8 @@ const App = () => {
       type: 'Cell Tower Database',
       coverage: 'Global',
       region: 'Global',
-      description: 'World\'s largest open database of cell towers for geolocation.',
+      description:
+        "World's largest open database of cell towers for geolocation.",
       pricing: 'Freemium',
       updateFrequency: 'Real-time',
       license: 'CC-BY-SA',
@@ -758,7 +833,7 @@ const App = () => {
       contact: 'info@opencellid.org',
       rating: 4.2,
       downloads: '1M+',
-      standards: ['OpenCellID']
+      standards: ['OpenCellID'],
     },
     {
       id: 34,
@@ -768,7 +843,8 @@ const App = () => {
       type: 'Settlement Data',
       coverage: 'Global',
       region: 'Global',
-      description: 'Open and free spatial information about human settlements worldwide.',
+      description:
+        'Open and free spatial information about human settlements worldwide.',
       pricing: 'Free',
       updateFrequency: 'Periodic',
       license: 'CC-BY',
@@ -780,7 +856,7 @@ const App = () => {
       contact: 'jrc-ghsl@ec.europa.eu',
       rating: 4.6,
       downloads: '300K+',
-      standards: ['ISO 19115']
+      standards: ['ISO 19115'],
     },
     {
       id: 35,
@@ -790,7 +866,8 @@ const App = () => {
       type: 'Land Cover Data',
       coverage: 'Global',
       region: 'Global',
-      description: 'Earth science data including land cover classification and change detection.',
+      description:
+        'Earth science data including land cover classification and change detection.',
       pricing: 'Free',
       updateFrequency: 'Periodic',
       license: 'Public Domain',
@@ -802,7 +879,7 @@ const App = () => {
       contact: 'glcf@umd.edu',
       rating: 4.3,
       downloads: '500K+',
-      standards: ['ISO 19115']
+      standards: ['ISO 19115'],
     },
     {
       id: 36,
@@ -817,14 +894,15 @@ const App = () => {
       updateFrequency: 'Static',
       license: 'Public Domain',
       directLink: 'https://sedac.ciesin.columbia.edu/data/collection/groads',
-      apiDocs: 'https://sedac.ciesin.columbia.edu/data/set/groads-global-roads-open-access-v1',
+      apiDocs:
+        'https://sedac.ciesin.columbia.edu/data/set/groads-global-roads-open-access-v1',
       dataTypes: ['Road Networks', 'Transportation Infrastructure'],
       formats: ['Shapefile', 'Geodatabase'],
       resolution: 'Variable',
       contact: 'ciesin.info@columbia.edu',
       rating: 4.4,
       downloads: '250K+',
-      standards: ['ISO 19115']
+      standards: ['ISO 19115'],
     },
     {
       id: 37,
@@ -834,7 +912,8 @@ const App = () => {
       type: 'Wind Resource Data',
       coverage: 'Global',
       region: 'Global',
-      description: 'Free wind resource assessment data for renewable energy planning.',
+      description:
+        'Free wind resource assessment data for renewable energy planning.',
       pricing: 'Free',
       updateFrequency: 'Periodic',
       license: 'CC-BY',
@@ -846,7 +925,7 @@ const App = () => {
       contact: 'gwa@dtu.dk',
       rating: 4.5,
       downloads: '200K+',
-      standards: ['WMO']
+      standards: ['WMO'],
     },
     {
       id: 38,
@@ -868,7 +947,7 @@ const App = () => {
       contact: 'support@solargis.com',
       rating: 4.6,
       downloads: '300K+',
-      standards: ['WMO']
+      standards: ['WMO'],
     },
     {
       id: 39,
@@ -878,7 +957,8 @@ const App = () => {
       type: 'Fire Detection',
       coverage: 'Global',
       region: 'Global',
-      description: 'Near real-time active fire data from MODIS and VIIRS satellites.',
+      description:
+        'Near real-time active fire data from MODIS and VIIRS satellites.',
       pricing: 'Free',
       updateFrequency: 'Near Real-time',
       license: 'Public Domain',
@@ -890,7 +970,7 @@ const App = () => {
       contact: 'support@earthdata.nasa.gov',
       rating: 4.7,
       downloads: '1M+',
-      standards: ['OGC']
+      standards: ['OGC'],
     },
     {
       id: 40,
@@ -900,19 +980,21 @@ const App = () => {
       type: 'Water Data',
       coverage: 'Global',
       region: 'Global',
-      description: 'Location and temporal distribution of surface water from 1984 to present.',
+      description:
+        'Location and temporal distribution of surface water from 1984 to present.',
       pricing: 'Free',
       updateFrequency: 'Annual',
       license: 'CC-BY',
       directLink: 'https://global-surface-water.appspot.com',
-      apiDocs: 'https://developers.google.com/earth-engine/datasets/catalog/JRC_GSW1_4',
+      apiDocs:
+        'https://developers.google.com/earth-engine/datasets/catalog/JRC_GSW1_4',
       dataTypes: ['Water Occurrence', 'Water Change', 'Seasonality'],
       formats: ['GeoTIFF', 'Earth Engine'],
       resolution: '30m',
       contact: 'jrc-water@ec.europa.eu',
       rating: 4.5,
       downloads: '250K+',
-      standards: ['ISO 19115']
+      standards: ['ISO 19115'],
     },
     {
       id: 41,
@@ -922,7 +1004,8 @@ const App = () => {
       type: 'Mapping Platform',
       coverage: 'Event-based',
       region: 'Multi-Regional',
-      description: 'Humanitarian mapping for disaster response and community development.',
+      description:
+        'Humanitarian mapping for disaster response and community development.',
       pricing: 'Free',
       updateFrequency: 'Real-time',
       license: 'ODbL',
@@ -934,7 +1017,7 @@ const App = () => {
       contact: 'info@hotosm.org',
       rating: 4.6,
       downloads: '500K+',
-      standards: ['OSM', 'OGC']
+      standards: ['OSM', 'OGC'],
     },
     {
       id: 42,
@@ -944,7 +1027,8 @@ const App = () => {
       type: 'Glacier Data',
       coverage: 'Global',
       region: 'Global',
-      description: 'Comprehensive glacier inventory and monitoring data worldwide.',
+      description:
+        'Comprehensive glacier inventory and monitoring data worldwide.',
       pricing: 'Free',
       updateFrequency: 'Annual',
       license: 'Public Domain',
@@ -956,7 +1040,7 @@ const App = () => {
       contact: 'nsidc@nsidc.org',
       rating: 4.4,
       downloads: '100K+',
-      standards: ['ISO 19115']
+      standards: ['ISO 19115'],
     },
     {
       id: 43,
@@ -966,7 +1050,8 @@ const App = () => {
       type: 'Mangrove Data',
       coverage: 'Tropical/Subtropical',
       region: 'Multi-Regional',
-      description: 'Monitoring mangrove forests globally with detailed change detection.',
+      description:
+        'Monitoring mangrove forests globally with detailed change detection.',
       pricing: 'Free',
       updateFrequency: 'Annual',
       license: 'CC-BY',
@@ -978,7 +1063,7 @@ const App = () => {
       contact: 'gmw@aber.ac.uk',
       rating: 4.3,
       downloads: '50K+',
-      standards: ['ISO 19115']
+      standards: ['ISO 19115'],
     },
     {
       id: 44,
@@ -988,7 +1073,8 @@ const App = () => {
       type: 'Fishing Activity Data',
       coverage: 'Global Oceans',
       region: 'Global',
-      description: 'Tracking commercial fishing activity worldwide using AIS data.',
+      description:
+        'Tracking commercial fishing activity worldwide using AIS data.',
       pricing: 'Free',
       updateFrequency: 'Near Real-time',
       license: 'CC-BY-SA',
@@ -1000,7 +1086,7 @@ const App = () => {
       contact: 'info@globalfishingwatch.org',
       rating: 4.5,
       downloads: '150K+',
-      standards: ['AIS']
+      standards: ['AIS'],
     },
     {
       id: 45,
@@ -1022,7 +1108,7 @@ const App = () => {
       contact: 'landscan@ornl.gov',
       rating: 4.6,
       downloads: '200K+',
-      standards: ['ISO 19115']
+      standards: ['ISO 19115'],
     },
     {
       id: 46,
@@ -1032,7 +1118,8 @@ const App = () => {
       type: 'Protected Areas',
       coverage: 'Global',
       region: 'Global',
-      description: 'World Database on Protected Areas with conservation area boundaries.',
+      description:
+        'World Database on Protected Areas with conservation area boundaries.',
       pricing: 'Free',
       updateFrequency: 'Monthly',
       license: 'Non-commercial',
@@ -1044,7 +1131,7 @@ const App = () => {
       contact: 'info@unep-wcmc.org',
       rating: 4.5,
       downloads: '400K+',
-      standards: ['WDPA', 'ISO 19115']
+      standards: ['WDPA', 'ISO 19115'],
     },
     {
       id: 47,
@@ -1054,7 +1141,8 @@ const App = () => {
       type: 'Nightlight Data',
       coverage: 'Global',
       region: 'Global',
-      description: 'Earth\'s surface lighting captured from space for urban analysis.',
+      description:
+        "Earth's surface lighting captured from space for urban analysis.",
       pricing: 'Free',
       updateFrequency: 'Monthly',
       license: 'Public Domain',
@@ -1066,7 +1154,7 @@ const App = () => {
       contact: 'eog@mines.edu',
       rating: 4.4,
       downloads: '300K+',
-      standards: ['ISO 19115']
+      standards: ['ISO 19115'],
     },
     {
       id: 48,
@@ -1076,7 +1164,8 @@ const App = () => {
       type: 'Soil Data',
       coverage: 'Global',
       region: 'Global',
-      description: 'SoilGrids provides soil property data at 250m resolution globally.',
+      description:
+        'SoilGrids provides soil property data at 250m resolution globally.',
       pricing: 'Free',
       updateFrequency: 'Periodic',
       license: 'CC-BY',
@@ -1088,7 +1177,7 @@ const App = () => {
       contact: 'soil.information@isric.org',
       rating: 4.5,
       downloads: '250K+',
-      standards: ['ISO 28258', 'OGC']
+      standards: ['ISO 28258', 'OGC'],
     },
     {
       id: 49,
@@ -1098,7 +1187,8 @@ const App = () => {
       type: 'Agricultural Data',
       coverage: 'Global',
       region: 'Global',
-      description: 'Global distribution of agricultural lands including croplands and pastures.',
+      description:
+        'Global distribution of agricultural lands including croplands and pastures.',
       pricing: 'Free',
       updateFrequency: 'Periodic',
       license: 'CC-BY',
@@ -1110,7 +1200,7 @@ const App = () => {
       contact: 'ciesin.info@columbia.edu',
       rating: 4.3,
       downloads: '200K+',
-      standards: ['ISO 19115']
+      standards: ['ISO 19115'],
     },
     {
       id: 50,
@@ -1132,7 +1222,7 @@ const App = () => {
       contact: 'https://earthquake.usgs.gov/contactus/',
       rating: 4.7,
       downloads: '2M+',
-      standards: ['QuakeML', 'FDSN']
+      standards: ['QuakeML', 'FDSN'],
     },
     {
       id: 51,
@@ -1142,7 +1232,8 @@ const App = () => {
       type: 'Land Cover',
       coverage: 'Global',
       region: 'Global',
-      description: 'Global land cover map at 10m resolution based on Sentinel data.',
+      description:
+        'Global land cover map at 10m resolution based on Sentinel data.',
       pricing: 'Free',
       updateFrequency: 'Annual',
       license: 'CC-BY',
@@ -1154,7 +1245,7 @@ const App = () => {
       contact: 'worldcover@esa.int',
       rating: 4.6,
       downloads: '300K+',
-      standards: ['ISO 19115']
+      standards: ['ISO 19115'],
     },
     {
       id: 52,
@@ -1164,19 +1255,21 @@ const App = () => {
       type: 'Ocean Depth',
       coverage: 'Global Oceans',
       region: 'Global',
-      description: 'General Bathymetric Chart of the Oceans - global ocean floor mapping.',
+      description:
+        'General Bathymetric Chart of the Oceans - global ocean floor mapping.',
       pricing: 'Free',
       updateFrequency: 'Annual',
       license: 'Public Domain',
       directLink: 'https://www.gebco.net',
-      apiDocs: 'https://www.gebco.net/data_and_products/gridded_bathymetry_data/',
+      apiDocs:
+        'https://www.gebco.net/data_and_products/gridded_bathymetry_data/',
       dataTypes: ['Bathymetry', 'Ocean Depth', 'Seafloor Topography'],
       formats: ['NetCDF', 'GeoTIFF', 'ASCII'],
       resolution: '15 arc-seconds',
       contact: 'info@gebco.net',
       rating: 4.5,
       downloads: '400K+',
-      standards: ['IHO', 'IOC']
+      standards: ['IHO', 'IOC'],
     },
     {
       id: 53,
@@ -1186,7 +1279,8 @@ const App = () => {
       type: 'Elevation Data',
       coverage: 'Global (83°N to 83°S)',
       region: 'Global',
-      description: 'Updated 30-meter resolution Digital Elevation Model with improved accuracy covering land surfaces between 83°N and 83°S, ideal for geosciences and environmental studies.',
+      description:
+        'Updated 30-meter resolution Digital Elevation Model with improved accuracy covering land surfaces between 83°N and 83°S, ideal for geosciences and environmental studies.',
       pricing: 'Free',
       updateFrequency: 'Static',
       license: 'Public Domain',
@@ -1198,7 +1292,7 @@ const App = () => {
       contact: 'lpdaac@usgs.gov',
       rating: 4.7,
       downloads: '2M+',
-      standards: ['ISO 19115']
+      standards: ['ISO 19115'],
     },
     {
       id: 54,
@@ -1208,11 +1302,13 @@ const App = () => {
       type: 'Satellite Imagery',
       coverage: 'Global',
       region: 'Global',
-      description: '30m-resolution Digital Surface Model from the ALOS PALSAR satellite providing detailed global surface mapping for topographic analysis.',
+      description:
+        '30m-resolution Digital Surface Model from the ALOS PALSAR satellite providing detailed global surface mapping for topographic analysis.',
       pricing: 'Free',
       updateFrequency: 'Static',
       license: 'JAXA Terms',
-      directLink: 'https://www.eorc.jaxa.jp/ALOS/en/dataset/aw3d30/aw3d30_e.htm',
+      directLink:
+        'https://www.eorc.jaxa.jp/ALOS/en/dataset/aw3d30/aw3d30_e.htm',
       apiDocs: 'https://www.eorc.jaxa.jp/ALOS/en/dataset/aw3d30/data/index.htm',
       dataTypes: ['DSM', 'Surface Model', 'Elevation'],
       formats: ['GeoTIFF'],
@@ -1220,7 +1316,7 @@ const App = () => {
       contact: 'alos-aw3d30@jaxa.jp',
       rating: 4.6,
       downloads: '800K+',
-      standards: ['ISO 19115']
+      standards: ['ISO 19115'],
     },
     {
       id: 55,
@@ -1230,19 +1326,21 @@ const App = () => {
       type: 'Elevation Data',
       coverage: 'Arctic (>60°N)',
       region: 'Multi-Regional',
-      description: 'High-resolution elevation models for all Arctic land areas north of 60 degrees latitude, generated using photogrammetry from satellite images.',
+      description:
+        'High-resolution elevation models for all Arctic land areas north of 60 degrees latitude, generated using photogrammetry from satellite images.',
       pricing: 'Free',
       updateFrequency: 'Periodic',
       license: 'Public Domain',
       directLink: 'https://www.pgc.umn.edu/data/arcticdem/',
-      apiDocs: 'https://www.pgc.umn.edu/guides/arcticdem/introduction-to-arcticdem/',
+      apiDocs:
+        'https://www.pgc.umn.edu/guides/arcticdem/introduction-to-arcticdem/',
       dataTypes: ['DEM', 'Arctic Elevation', 'Terrain'],
       formats: ['GeoTIFF', 'Cloud-optimized GeoTIFF'],
       resolution: '2m-32m',
       contact: 'pgc@umn.edu',
       rating: 4.7,
       downloads: '300K+',
-      standards: ['ISO 19115']
+      standards: ['ISO 19115'],
     },
     {
       id: 56,
@@ -1252,7 +1350,8 @@ const App = () => {
       type: 'Elevation Data',
       coverage: 'Near-Global',
       region: 'Global',
-      description: 'Near-global 90m resolution DEM created by merging ASTER GDEM and SRTM data with post-processing to fill voids and smooth artifacts.',
+      description:
+        'Near-global 90m resolution DEM created by merging ASTER GDEM and SRTM data with post-processing to fill voids and smooth artifacts.',
       pricing: 'Free',
       updateFrequency: 'Static',
       license: 'CC-BY-NC-SA',
@@ -1264,7 +1363,7 @@ const App = () => {
       contact: 'earthenv@yale.edu',
       rating: 4.5,
       downloads: '500K+',
-      standards: ['ISO 19115']
+      standards: ['ISO 19115'],
     },
     {
       id: 57,
@@ -1274,7 +1373,8 @@ const App = () => {
       type: 'Elevation/Bathymetry',
       coverage: 'Global',
       region: 'Global',
-      description: '1 arc-minute resolution relief model integrating land topography and ocean bathymetry, providing comprehensive Earth surface representation.',
+      description:
+        '1 arc-minute resolution relief model integrating land topography and ocean bathymetry, providing comprehensive Earth surface representation.',
       pricing: 'Free',
       updateFrequency: 'Static',
       license: 'Public Domain',
@@ -1286,7 +1386,7 @@ const App = () => {
       contact: 'ngdc.info@noaa.gov',
       rating: 4.6,
       downloads: '1M+',
-      standards: ['ISO 19115']
+      standards: ['ISO 19115'],
     },
     {
       id: 58,
@@ -1296,7 +1396,8 @@ const App = () => {
       type: 'Elevation Data',
       coverage: 'Global',
       region: 'Global',
-      description: 'Gridded elevation data at approximately 100m resolution covering both terrestrial and seafloor topography for comprehensive global mapping.',
+      description:
+        'Gridded elevation data at approximately 100m resolution covering both terrestrial and seafloor topography for comprehensive global mapping.',
       pricing: 'Free',
       updateFrequency: 'Regular',
       license: 'CC-BY',
@@ -1308,7 +1409,7 @@ const App = () => {
       contact: 'info@marine-geo.org',
       rating: 4.5,
       downloads: '400K+',
-      standards: ['OGC', 'ISO 19115']
+      standards: ['OGC', 'ISO 19115'],
     },
     {
       id: 59,
@@ -1318,7 +1419,8 @@ const App = () => {
       type: 'Elevation Data',
       coverage: 'Global (90°N-60°S)',
       region: 'Global',
-      description: 'Multi-Error-Removed Improved-Terrain DEM correcting multiple systematic errors in existing DEMs including SRTM, providing enhanced accuracy.',
+      description:
+        'Multi-Error-Removed Improved-Terrain DEM correcting multiple systematic errors in existing DEMs including SRTM, providing enhanced accuracy.',
       pricing: 'Free',
       updateFrequency: 'Static',
       license: 'CC-BY-NC',
@@ -1330,7 +1432,7 @@ const App = () => {
       contact: 'yamadai@rainbow.iis.u-tokyo.ac.jp',
       rating: 4.8,
       downloads: '600K+',
-      standards: ['ISO 19115']
+      standards: ['ISO 19115'],
     },
     {
       id: 60,
@@ -1340,11 +1442,13 @@ const App = () => {
       type: 'Elevation Data',
       coverage: 'Global (60°N-56°S)',
       region: 'Global',
-      description: '1-arc-second resolution DEM based on refined SRTM data with improved processing algorithms providing enhanced elevation details.',
+      description:
+        '1-arc-second resolution DEM based on refined SRTM data with improved processing algorithms providing enhanced elevation details.',
       pricing: 'Free',
       updateFrequency: 'Static',
       license: 'Public Domain',
-      directLink: 'https://earthdata.nasa.gov/esds/competitive-programs/measures/nasadem',
+      directLink:
+        'https://earthdata.nasa.gov/esds/competitive-programs/measures/nasadem',
       apiDocs: 'https://lpdaac.usgs.gov/products/nasadem_hgtv001/',
       dataTypes: ['DEM', 'Enhanced SRTM', 'Elevation'],
       formats: ['GeoTIFF', 'HGT'],
@@ -1352,7 +1456,7 @@ const App = () => {
       contact: 'lpdaac@usgs.gov',
       rating: 4.7,
       downloads: '1.5M+',
-      standards: ['ISO 19115']
+      standards: ['ISO 19115'],
     },
     {
       id: 61,
@@ -1362,7 +1466,8 @@ const App = () => {
       type: 'Elevation Data',
       coverage: 'Global',
       region: 'Global',
-      description: 'High-resolution 12m global DEM from TerraSAR-X and TanDEM-X satellites providing unprecedented detail for topographical analysis.',
+      description:
+        'High-resolution 12m global DEM from TerraSAR-X and TanDEM-X satellites providing unprecedented detail for topographical analysis.',
       pricing: 'Free (Research)',
       updateFrequency: 'Static',
       license: 'Research License',
@@ -1374,7 +1479,7 @@ const App = () => {
       contact: 'tandemx-science@dlr.de',
       rating: 4.9,
       downloads: '500K+',
-      standards: ['ISO 19115']
+      standards: ['ISO 19115'],
     },
     {
       id: 62,
@@ -1384,7 +1489,8 @@ const App = () => {
       type: 'Land Cover',
       coverage: 'Global',
       region: 'Global',
-      description: 'Global land cover classification at 500m resolution from MODIS satellite providing yearly updates of land cover types worldwide.',
+      description:
+        'Global land cover classification at 500m resolution from MODIS satellite providing yearly updates of land cover types worldwide.',
       pricing: 'Free',
       updateFrequency: 'Annual',
       license: 'Public Domain',
@@ -1396,7 +1502,7 @@ const App = () => {
       contact: 'lpdaac@usgs.gov',
       rating: 4.6,
       downloads: '2M+',
-      standards: ['ISO 19115']
+      standards: ['ISO 19115'],
     },
     {
       id: 63,
@@ -1406,7 +1512,8 @@ const App = () => {
       type: 'Nighttime Lights',
       coverage: 'Global',
       region: 'Global',
-      description: 'Monthly composites of nighttime lights from VIIRS satellite showing human settlements, economic activity, and light pollution patterns.',
+      description:
+        'Monthly composites of nighttime lights from VIIRS satellite showing human settlements, economic activity, and light pollution patterns.',
       pricing: 'Free',
       updateFrequency: 'Monthly',
       license: 'Public Domain',
@@ -1418,7 +1525,7 @@ const App = () => {
       contact: 'eog@mines.edu',
       rating: 4.7,
       downloads: '800K+',
-      standards: ['ISO 19115']
+      standards: ['ISO 19115'],
     },
     {
       id: 64,
@@ -1428,7 +1535,8 @@ const App = () => {
       type: 'Satellite Imagery',
       coverage: 'Global',
       region: 'Global',
-      description: 'Longest continuously acquired collection of space-based moderate-resolution land remote sensing data providing 50+ years of Earth observation.',
+      description:
+        'Longest continuously acquired collection of space-based moderate-resolution land remote sensing data providing 50+ years of Earth observation.',
       pricing: 'Free',
       updateFrequency: 'Every 16 days',
       license: 'Public Domain',
@@ -1440,7 +1548,7 @@ const App = () => {
       contact: 'custserv@usgs.gov',
       rating: 4.9,
       downloads: '10M+',
-      standards: ['ISO 19115', 'FGDC']
+      standards: ['ISO 19115', 'FGDC'],
     },
     {
       id: 65,
@@ -1450,19 +1558,21 @@ const App = () => {
       type: 'Satellite Imagery',
       coverage: 'Global (83°N-83°S)',
       region: 'Global',
-      description: 'Advanced Spaceborne Thermal Emission and Reflection Radiometer providing high spatial resolution multispectral imagery in visible to thermal infrared.',
+      description:
+        'Advanced Spaceborne Thermal Emission and Reflection Radiometer providing high spatial resolution multispectral imagery in visible to thermal infrared.',
       pricing: 'Free',
       updateFrequency: 'Archive',
       license: 'Public Domain',
       directLink: 'https://asterweb.jpl.nasa.gov/',
-      apiDocs: 'https://lpdaac.usgs.gov/data/get-started-data/collection-overview/missions/aster-overview/',
+      apiDocs:
+        'https://lpdaac.usgs.gov/data/get-started-data/collection-overview/missions/aster-overview/',
       dataTypes: ['Multispectral', 'Thermal', 'VNIR/SWIR/TIR'],
       formats: ['HDF', 'GeoTIFF'],
       resolution: '15m-90m',
       contact: 'lpdaac@usgs.gov',
       rating: 4.6,
       downloads: '1.5M+',
-      standards: ['ISO 19115']
+      standards: ['ISO 19115'],
     },
     {
       id: 66,
@@ -1472,7 +1582,8 @@ const App = () => {
       type: 'Forest Cover',
       coverage: 'Global',
       region: 'Global',
-      description: 'Global forest/non-forest map based on PALSAR L-band SAR data providing accurate forest classification independent of weather conditions.',
+      description:
+        'Global forest/non-forest map based on PALSAR L-band SAR data providing accurate forest classification independent of weather conditions.',
       pricing: 'Free',
       updateFrequency: 'Annual',
       license: 'JAXA Terms',
@@ -1484,7 +1595,7 @@ const App = () => {
       contact: 'alos-fnf@jaxa.jp',
       rating: 4.5,
       downloads: '400K+',
-      standards: ['ISO 19115']
+      standards: ['ISO 19115'],
     },
     {
       id: 67,
@@ -1494,7 +1605,8 @@ const App = () => {
       type: 'Earth Observation Platform',
       coverage: 'Regional Focus',
       region: 'Multi-Regional',
-      description: 'Joint initiative providing satellite-based Earth observation data and geospatial analysis for environmental decision-making in developing regions.',
+      description:
+        'Joint initiative providing satellite-based Earth observation data and geospatial analysis for environmental decision-making in developing regions.',
       pricing: 'Free',
       updateFrequency: 'Continuous',
       license: 'Open',
@@ -1506,7 +1618,7 @@ const App = () => {
       contact: 'servir@nasa.gov',
       rating: 4.5,
       downloads: '300K+',
-      standards: ['OGC', 'ISO 19115']
+      standards: ['OGC', 'ISO 19115'],
     },
     {
       id: 68,
@@ -1516,7 +1628,8 @@ const App = () => {
       type: 'Weather Data',
       coverage: 'Global',
       region: 'Global',
-      description: 'International satellite mission providing next-generation observations of rain and snow worldwide every three hours for climate and weather research.',
+      description:
+        'International satellite mission providing next-generation observations of rain and snow worldwide every three hours for climate and weather research.',
       pricing: 'Free',
       updateFrequency: 'Every 3 hours',
       license: 'Public Domain',
@@ -1528,7 +1641,7 @@ const App = () => {
       contact: 'gsfc-dl-help-disc@mail.nasa.gov',
       rating: 4.7,
       downloads: '1M+',
-      standards: ['ISO 19115']
+      standards: ['ISO 19115'],
     },
     {
       id: 69,
@@ -1538,7 +1651,8 @@ const App = () => {
       type: 'Radar Imagery',
       coverage: 'Global',
       region: 'Global',
-      description: 'C-band Synthetic Aperture Radar providing all-weather, day-and-night imagery for land and ocean monitoring with 12-day repeat cycle.',
+      description:
+        'C-band Synthetic Aperture Radar providing all-weather, day-and-night imagery for land and ocean monitoring with 12-day repeat cycle.',
       pricing: 'Free',
       updateFrequency: 'Every 12 days',
       license: 'Open',
@@ -1550,7 +1664,7 @@ const App = () => {
       contact: 'eohelp@copernicus.esa.int',
       rating: 4.8,
       downloads: '2M+',
-      standards: ['INSPIRE', 'ISO 19115']
+      standards: ['INSPIRE', 'ISO 19115'],
     },
     {
       id: 70,
@@ -1560,19 +1674,21 @@ const App = () => {
       type: 'Ocean Monitoring',
       coverage: 'Global Oceans',
       region: 'Global',
-      description: 'Multi-instrument mission measuring sea surface topography, temperature, and color for ocean forecasting and climate monitoring.',
+      description:
+        'Multi-instrument mission measuring sea surface topography, temperature, and color for ocean forecasting and climate monitoring.',
       pricing: 'Free',
       updateFrequency: 'Daily',
       license: 'Open',
       directLink: 'https://sentinel.esa.int/web/sentinel/missions/sentinel-3',
-      apiDocs: 'https://sentinels.copernicus.eu/web/sentinel/user-guides/sentinel-3-olci',
+      apiDocs:
+        'https://sentinels.copernicus.eu/web/sentinel/user-guides/sentinel-3-olci',
       dataTypes: ['Ocean Color', 'Sea Surface Temp', 'Topography'],
       formats: ['NetCDF', 'GeoTIFF'],
       resolution: '300m-1km',
       contact: 'eohelp@copernicus.esa.int',
       rating: 4.6,
       downloads: '800K+',
-      standards: ['INSPIRE', 'ISO 19115']
+      standards: ['INSPIRE', 'ISO 19115'],
     },
     {
       id: 71,
@@ -1582,7 +1698,8 @@ const App = () => {
       type: 'Atmospheric Data',
       coverage: 'Global',
       region: 'Global',
-      description: 'Specializes in data on Earth\'s radiation budget, clouds, aerosols, and tropospheric chemistry for atmospheric research and climate studies.',
+      description:
+        "Specializes in data on Earth's radiation budget, clouds, aerosols, and tropospheric chemistry for atmospheric research and climate studies.",
       pricing: 'Free',
       updateFrequency: 'Continuous',
       license: 'Public Domain',
@@ -1594,7 +1711,7 @@ const App = () => {
       contact: 'support-asdc@earthdata.nasa.gov',
       rating: 4.5,
       downloads: '600K+',
-      standards: ['ISO 19115']
+      standards: ['ISO 19115'],
     },
     {
       id: 72,
@@ -1604,7 +1721,8 @@ const App = () => {
       type: 'Climate Reanalysis',
       coverage: 'Global',
       region: 'Global',
-      description: 'Comprehensive dataset offering global atmospheric reanalysis data from 1958 onwards using data assimilation for climate diagnostics.',
+      description:
+        'Comprehensive dataset offering global atmospheric reanalysis data from 1958 onwards using data assimilation for climate diagnostics.',
       pricing: 'Free',
       updateFrequency: 'Continuous',
       license: 'Open',
@@ -1616,45 +1734,83 @@ const App = () => {
       contact: 'jra@met.kishou.go.jp',
       rating: 4.6,
       downloads: '400K+',
-      standards: ['WMO', 'ISO 19115']
-    }
+      standards: ['WMO', 'ISO 19115'],
+    },
   ];
 
   const filteredProducts = useMemo(() => {
-    return products.filter(product => {
-      const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           product.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           product.provider.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchesCategory = selectedCategory === 'all' || product.category === selectedCategory;
-      const matchesType = selectedType === 'all' || product.type === selectedType;
-      const matchesFormat = selectedFormat === 'all' || product.formats.some(f => f.includes(selectedFormat));
-      const matchesRegion = selectedRegion === 'all' || product.region === selectedRegion;
-      const matchesPrice = priceFilter === 'all' || 
-                          (priceFilter === 'free' && (product.pricing === 'Free' || product.pricing.includes('Free'))) ||
-                          (priceFilter === 'paid' && product.pricing !== 'Free' && !product.pricing.includes('Free'));
+    return products.filter((product) => {
+      const matchesSearch =
+        product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        product.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        product.provider.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesCategory =
+        selectedCategory === 'all' || product.category === selectedCategory;
+      const matchesType =
+        selectedType === 'all' || product.type === selectedType;
+      const matchesFormat =
+        selectedFormat === 'all' ||
+        product.formats.some((f) => f.includes(selectedFormat));
+      const matchesRegion =
+        selectedRegion === 'all' || product.region === selectedRegion;
+      const matchesPrice =
+        priceFilter === 'all' ||
+        (priceFilter === 'free' &&
+          (product.pricing === 'Free' || product.pricing.includes('Free'))) ||
+        (priceFilter === 'paid' &&
+          product.pricing !== 'Free' &&
+          !product.pricing.includes('Free'));
       const matchesRating = product.rating >= minRating;
-      
-      return matchesSearch && matchesCategory && matchesType && matchesFormat && matchesRegion && matchesPrice && matchesRating;
+
+      return (
+        matchesSearch &&
+        matchesCategory &&
+        matchesType &&
+        matchesFormat &&
+        matchesRegion &&
+        matchesPrice &&
+        matchesRating
+      );
     });
-  }, [searchTerm, selectedCategory, selectedType, selectedFormat, selectedRegion, priceFilter, minRating]);
+  }, [
+    searchTerm,
+    selectedCategory,
+    selectedType,
+    selectedFormat,
+    selectedRegion,
+    priceFilter,
+    minRating,
+  ]);
 
-  const dataTypes = ['all', ...new Set(products.map(p => p.type))];
+  const dataTypes = ['all', ...new Set(products.map((p) => p.type))];
 
-  const RatingStars = ({ rating }) => {
+  const RatingStars = ({ rating, darkMode }) => {
     return (
       <div className="flex items-center space-x-1">
         {[1, 2, 3, 4, 5].map((star) => (
           <Star
             key={star}
-            className={`w-4 h-4 ${star <= rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`}
+            className={`w-4 h-4 ${
+              star <= rating
+                ? 'fill-yellow-400 text-yellow-400'
+                : darkMode
+                ? 'text-gray-600'
+                : 'text-gray-300'
+            }`}
           />
         ))}
-        <span className="text-sm text-gray-600 ml-1">{rating}</span>
+        <span
+          className={`text-sm ml-1 ${
+            darkMode ? 'text-gray-400' : 'text-gray-600'
+          }`}
+        >
+          {rating}
+        </span>
       </div>
     );
   };
 
-  const SubmissionModal = () => {
+  const SubmissionModal = ({ darkMode }) => {
     const [formData, setFormData] = useState({
       name: '',
       provider: '',
@@ -1671,7 +1827,7 @@ const App = () => {
       dataTypes: '',
       formats: '',
       resolution: '',
-      contact: ''
+      contact: '',
     });
 
     const handleSubmit = (e) => {
@@ -1682,125 +1838,439 @@ const App = () => {
     };
 
     return (
-      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 overflow-y-auto">
-        <div className="bg-white rounded-xl shadow-2xl max-w-3xl w-full my-8">
-          <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex items-center justify-between rounded-t-xl">
-            <h2 className="text-2xl font-bold text-gray-900">Submit a Spatial Product</h2>
+      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 animate-fadeIn">
+        <div
+          className={`rounded-xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden transition-colors duration-300 ${
+            darkMode ? 'bg-gray-800' : 'bg-white'
+          }`}
+        >
+          <div
+            className={`border-b p-6 flex items-center justify-between ${
+              darkMode
+                ? 'bg-gray-800 border-gray-700'
+                : 'bg-white border-gray-200'
+            }`}
+          >
+            <h2
+              className={`text-2xl font-bold ${
+                darkMode ? 'text-white' : 'text-gray-900'
+              }`}
+            >
+              Submit a Spatial Product
+            </h2>
             <button
               onClick={() => setShowSubmissionForm(false)}
-              className="text-gray-500 hover:text-gray-700"
+              className={`transition-colors ${
+                darkMode
+                  ? 'text-gray-400 hover:text-gray-200'
+                  : 'text-gray-500 hover:text-gray-700'
+              }`}
             >
               <X className="w-6 h-6" />
             </button>
           </div>
-          
-          <form onSubmit={handleSubmit} className="p-6 space-y-4 max-h-[70vh] overflow-y-auto">
+
+          <form
+            onSubmit={handleSubmit}
+            className="p-6 space-y-4 overflow-y-auto"
+            style={{ maxHeight: 'calc(90vh - 100px)' }}
+          >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Product Name *</label>
+                <label
+                  className={`block text-sm font-medium mb-2 ${
+                    darkMode ? 'text-gray-300' : 'text-gray-700'
+                  }`}
+                >
+                  Product Name *
+                </label>
                 <input
                   type="text"
                   required
                   value={formData.name}
-                  onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
+                  className={`w-full px-3 py-2 border rounded-lg transition-colors focus:ring-2 focus:ring-indigo-500 focus:outline-none ${
+                    darkMode
+                      ? 'bg-gray-700 border-gray-600 text-white'
+                      : 'bg-white border-gray-300 text-gray-900'
+                  }`}
                 />
               </div>
-              
+
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">License</label>
+                <label
+                  className={`block text-sm font-medium mb-2 ${
+                    darkMode ? 'text-gray-300' : 'text-gray-700'
+                  }`}
+                >
+                  Provider *
+                </label>
+                <input
+                  type="text"
+                  required
+                  placeholder="e.g., Google, NASA"
+                  value={formData.provider}
+                  onChange={(e) =>
+                    setFormData({ ...formData, provider: e.target.value })
+                  }
+                  className={`w-full px-3 py-2 border rounded-lg transition-colors focus:ring-2 focus:ring-indigo-500 focus:outline-none ${
+                    darkMode
+                      ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-500'
+                      : 'bg-white border-gray-300 text-gray-900'
+                  }`}
+                />
+              </div>
+
+              <div>
+                <label
+                  className={`block text-sm font-medium mb-2 ${
+                    darkMode ? 'text-gray-300' : 'text-gray-700'
+                  }`}
+                >
+                  Category *
+                </label>
+                <select
+                  required
+                  value={formData.category}
+                  onChange={(e) =>
+                    setFormData({ ...formData, category: e.target.value })
+                  }
+                  className={`w-full px-3 py-2 border rounded-lg transition-colors focus:ring-2 focus:ring-indigo-500 focus:outline-none ${
+                    darkMode
+                      ? 'bg-gray-700 border-gray-600 text-white'
+                      : 'bg-white border-gray-300 text-gray-900'
+                  }`}
+                >
+                  {categories
+                    .filter((c) => c.id !== 'all')
+                    .map((cat) => (
+                      <option key={cat.id} value={cat.id}>
+                        {cat.name}
+                      </option>
+                    ))}
+                </select>
+              </div>
+
+              <div>
+                <label
+                  className={`block text-sm font-medium mb-2 ${
+                    darkMode ? 'text-gray-300' : 'text-gray-700'
+                  }`}
+                >
+                  Type *
+                </label>
+                <input
+                  type="text"
+                  required
+                  placeholder="e.g., Satellite Imagery, Vector Data"
+                  value={formData.type}
+                  onChange={(e) =>
+                    setFormData({ ...formData, type: e.target.value })
+                  }
+                  className={`w-full px-3 py-2 border rounded-lg transition-colors focus:ring-2 focus:ring-indigo-500 focus:outline-none ${
+                    darkMode
+                      ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-500'
+                      : 'bg-white border-gray-300 text-gray-900'
+                  }`}
+                />
+              </div>
+
+              <div>
+                <label
+                  className={`block text-sm font-medium mb-2 ${
+                    darkMode ? 'text-gray-300' : 'text-gray-700'
+                  }`}
+                >
+                  Coverage *
+                </label>
+                <input
+                  type="text"
+                  required
+                  placeholder="e.g., Global, Regional"
+                  value={formData.coverage}
+                  onChange={(e) =>
+                    setFormData({ ...formData, coverage: e.target.value })
+                  }
+                  className={`w-full px-3 py-2 border rounded-lg transition-colors focus:ring-2 focus:ring-indigo-500 focus:outline-none ${
+                    darkMode
+                      ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-500'
+                      : 'bg-white border-gray-300 text-gray-900'
+                  }`}
+                />
+              </div>
+
+              <div>
+                <label
+                  className={`block text-sm font-medium mb-2 ${
+                    darkMode ? 'text-gray-300' : 'text-gray-700'
+                  }`}
+                >
+                  Region *
+                </label>
+                <select
+                  required
+                  value={formData.region}
+                  onChange={(e) =>
+                    setFormData({ ...formData, region: e.target.value })
+                  }
+                  className={`w-full px-3 py-2 border rounded-lg transition-colors focus:ring-2 focus:ring-indigo-500 focus:outline-none ${
+                    darkMode
+                      ? 'bg-gray-700 border-gray-600 text-white'
+                      : 'bg-white border-gray-300 text-gray-900'
+                  }`}
+                >
+                  {regions
+                    .filter((r) => r !== 'all')
+                    .map((region) => (
+                      <option key={region} value={region}>
+                        {region}
+                      </option>
+                    ))}
+                </select>
+              </div>
+
+              <div>
+                <label
+                  className={`block text-sm font-medium mb-2 ${
+                    darkMode ? 'text-gray-300' : 'text-gray-700'
+                  }`}
+                >
+                  Pricing *
+                </label>
+                <input
+                  type="text"
+                  required
+                  placeholder="e.g., Free, Commercial, Freemium"
+                  value={formData.pricing}
+                  onChange={(e) =>
+                    setFormData({ ...formData, pricing: e.target.value })
+                  }
+                  className={`w-full px-3 py-2 border rounded-lg transition-colors focus:ring-2 focus:ring-indigo-500 focus:outline-none ${
+                    darkMode
+                      ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-500'
+                      : 'bg-white border-gray-300 text-gray-900'
+                  }`}
+                />
+              </div>
+
+              <div>
+                <label
+                  className={`block text-sm font-medium mb-2 ${
+                    darkMode ? 'text-gray-300' : 'text-gray-700'
+                  }`}
+                >
+                  Update Frequency
+                </label>
+                <input
+                  type="text"
+                  placeholder="e.g., Daily, Monthly, Real-time"
+                  value={formData.updateFrequency}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      updateFrequency: e.target.value,
+                    })
+                  }
+                  className={`w-full px-3 py-2 border rounded-lg transition-colors focus:ring-2 focus:ring-indigo-500 focus:outline-none ${
+                    darkMode
+                      ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-500'
+                      : 'bg-white border-gray-300 text-gray-900'
+                  }`}
+                />
+              </div>
+
+              <div>
+                <label
+                  className={`block text-sm font-medium mb-2 ${
+                    darkMode ? 'text-gray-300' : 'text-gray-700'
+                  }`}
+                >
+                  License
+                </label>
                 <input
                   type="text"
                   placeholder="e.g., MIT, GPL, Commercial"
                   value={formData.license}
-                  onChange={(e) => setFormData({...formData, license: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                  onChange={(e) =>
+                    setFormData({ ...formData, license: e.target.value })
+                  }
+                  className={`w-full px-3 py-2 border rounded-lg transition-colors focus:ring-2 focus:ring-indigo-500 focus:outline-none ${
+                    darkMode
+                      ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-500'
+                      : 'bg-white border-gray-300 text-gray-900'
+                  }`}
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Resolution</label>
+                <label
+                  className={`block text-sm font-medium mb-2 ${
+                    darkMode ? 'text-gray-300' : 'text-gray-700'
+                  }`}
+                >
+                  Resolution
+                </label>
                 <input
                   type="text"
                   placeholder="e.g., 10m, 30m, Variable"
                   value={formData.resolution}
-                  onChange={(e) => setFormData({...formData, resolution: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                  onChange={(e) =>
+                    setFormData({ ...formData, resolution: e.target.value })
+                  }
+                  className={`w-full px-3 py-2 border rounded-lg transition-colors focus:ring-2 focus:ring-indigo-500 focus:outline-none ${
+                    darkMode
+                      ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-500'
+                      : 'bg-white border-gray-300 text-gray-900'
+                  }`}
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Contact Email</label>
+                <label
+                  className={`block text-sm font-medium mb-2 ${
+                    darkMode ? 'text-gray-300' : 'text-gray-700'
+                  }`}
+                >
+                  Contact Email
+                </label>
                 <input
                   type="email"
                   placeholder="contact@example.com"
                   value={formData.contact}
-                  onChange={(e) => setFormData({...formData, contact: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                  onChange={(e) =>
+                    setFormData({ ...formData, contact: e.target.value })
+                  }
+                  className={`w-full px-3 py-2 border rounded-lg transition-colors focus:ring-2 focus:ring-indigo-500 focus:outline-none ${
+                    darkMode
+                      ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-500'
+                      : 'bg-white border-gray-300 text-gray-900'
+                  }`}
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Formats (comma-separated)</label>
+                <label
+                  className={`block text-sm font-medium mb-2 ${
+                    darkMode ? 'text-gray-300' : 'text-gray-700'
+                  }`}
+                >
+                  Formats (comma-separated)
+                </label>
                 <input
                   type="text"
                   placeholder="e.g., WMS, WFS, GeoJSON"
                   value={formData.formats}
-                  onChange={(e) => setFormData({...formData, formats: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                  onChange={(e) =>
+                    setFormData({ ...formData, formats: e.target.value })
+                  }
+                  className={`w-full px-3 py-2 border rounded-lg transition-colors focus:ring-2 focus:ring-indigo-500 focus:outline-none ${
+                    darkMode
+                      ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-500'
+                      : 'bg-white border-gray-300 text-gray-900'
+                  }`}
                 />
               </div>
             </div>
-            
+
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Description *</label>
+              <label
+                className={`block text-sm font-medium mb-2 ${
+                  darkMode ? 'text-gray-300' : 'text-gray-700'
+                }`}
+              >
+                Description *
+              </label>
               <textarea
                 required
                 rows="3"
                 value={formData.description}
-                onChange={(e) => setFormData({...formData, description: e.target.value})}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                onChange={(e) =>
+                  setFormData({ ...formData, description: e.target.value })
+                }
+                className={`w-full px-3 py-2 border rounded-lg transition-colors focus:ring-2 focus:ring-indigo-500 focus:outline-none ${
+                  darkMode
+                    ? 'bg-gray-700 border-gray-600 text-white'
+                    : 'bg-white border-gray-300 text-gray-900'
+                }`}
               />
             </div>
-            
+
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Direct Link/Database URL *</label>
+              <label
+                className={`block text-sm font-medium mb-2 ${
+                  darkMode ? 'text-gray-300' : 'text-gray-700'
+                }`}
+              >
+                Direct Link/Database URL *
+              </label>
               <input
                 type="url"
                 required
                 placeholder="https://..."
                 value={formData.directLink}
-                onChange={(e) => setFormData({...formData, directLink: e.target.value})}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                onChange={(e) =>
+                  setFormData({ ...formData, directLink: e.target.value })
+                }
+                className={`w-full px-3 py-2 border rounded-lg transition-colors focus:ring-2 focus:ring-indigo-500 focus:outline-none ${
+                  darkMode
+                    ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-500'
+                    : 'bg-white border-gray-300 text-gray-900'
+                }`}
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">API Documentation URL</label>
+              <label
+                className={`block text-sm font-medium mb-2 ${
+                  darkMode ? 'text-gray-300' : 'text-gray-700'
+                }`}
+              >
+                API Documentation URL
+              </label>
               <input
                 type="url"
                 placeholder="https://..."
                 value={formData.apiDocs}
-                onChange={(e) => setFormData({...formData, apiDocs: e.target.value})}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                onChange={(e) =>
+                  setFormData({ ...formData, apiDocs: e.target.value })
+                }
+                className={`w-full px-3 py-2 border rounded-lg transition-colors focus:ring-2 focus:ring-indigo-500 focus:outline-none ${
+                  darkMode
+                    ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-500'
+                    : 'bg-white border-gray-300 text-gray-900'
+                }`}
               />
             </div>
-            
+
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Data Types (comma-separated)</label>
+              <label
+                className={`block text-sm font-medium mb-2 ${
+                  darkMode ? 'text-gray-300' : 'text-gray-700'
+                }`}
+              >
+                Data Types (comma-separated)
+              </label>
               <input
                 type="text"
                 placeholder="e.g., Vector, Raster, DEM"
                 value={formData.dataTypes}
-                onChange={(e) => setFormData({...formData, dataTypes: e.target.value})}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                onChange={(e) =>
+                  setFormData({ ...formData, dataTypes: e.target.value })
+                }
+                className={`w-full px-3 py-2 border rounded-lg transition-colors focus:ring-2 focus:ring-indigo-500 focus:outline-none ${
+                  darkMode
+                    ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-500'
+                    : 'bg-white border-gray-300 text-gray-900'
+                }`}
               />
             </div>
-            
+
             <div className="flex space-x-3 pt-4">
               <button
                 type="submit"
-                className="flex-1 px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition flex items-center justify-center space-x-2"
+                className="flex-1 px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition-all duration-300 flex items-center justify-center space-x-2 transform hover:scale-105"
               >
                 <Send className="w-5 h-5" />
                 <span>Submit for Review</span>
@@ -1808,7 +2278,11 @@ const App = () => {
               <button
                 type="button"
                 onClick={() => setShowSubmissionForm(false)}
-                className="px-6 py-3 bg-gray-200 text-gray-700 font-semibold rounded-lg hover:bg-gray-300 transition"
+                className={`px-6 py-3 font-semibold rounded-lg transition-all duration-300 ${
+                  darkMode
+                    ? 'bg-gray-700 text-gray-200 hover:bg-gray-600'
+                    : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                }`}
               >
                 Cancel
               </button>
@@ -1820,26 +2294,63 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 w-full">
+    <div
+      className={`min-h-screen w-full transition-colors duration-300 ${
+        darkMode
+          ? 'bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900'
+          : 'bg-gradient-to-br from-blue-50 to-indigo-50'
+      }`}
+    >
       {/* Header */}
-      <header className="bg-white shadow-sm border-b border-gray-200 w-full">
+      <header
+        className={`shadow-sm border-b w-full transition-colors duration-300 ${
+          darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-4 py-6 w-full">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <img 
-                src="https://i.imgur.com/EeUEi7W.png" 
-                alt="Spatial Yellowpage Logo" 
+              <img
+                src="https://i.imgur.com/EeUEi7W.png"
+                alt="Spatial Yellowpage Logo"
                 className="w-16 h-16 object-contain"
               />
               <div>
-                <h1 className="text-3xl font-bold text-gray-900">Spatial Yellowpage</h1>
-                <p className="text-sm text-gray-600">Global Directory of Spatial Products & Tools</p>
+                <h1
+                  className={`text-3xl font-bold transition-colors ${
+                    darkMode ? 'text-white' : 'text-gray-900'
+                  }`}
+                >
+                  Spatial Yellowpage
+                </h1>
+                <p
+                  className={`text-sm transition-colors ${
+                    darkMode ? 'text-gray-400' : 'text-gray-600'
+                  }`}
+                >
+                  Global Directory of Spatial Products & Tools
+                </p>
               </div>
             </div>
             <div className="flex items-center space-x-4">
-              <button 
+              <button
+                onClick={() => setDarkMode(!darkMode)}
+                className={`p-3 rounded-lg transition-all duration-300 ${
+                  darkMode
+                    ? 'bg-gray-700 text-yellow-400 hover:bg-gray-600'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+                aria-label="Toggle dark mode"
+              >
+                {darkMode ? (
+                  <Sun className="w-5 h-5" />
+                ) : (
+                  <Moon className="w-5 h-5" />
+                )}
+              </button>
+              <button
                 onClick={() => setShowSubmissionForm(true)}
-                className="px-4 py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition"
+                className="px-4 py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition-all duration-300 transform hover:scale-105 shadow-md"
               >
                 Submit Product
               </button>
@@ -1850,21 +2361,37 @@ const App = () => {
 
       <div className="max-w-7xl mx-auto px-4 py-8 w-full">
         {/* Search and Filters */}
-        <div className="bg-white rounded-xl shadow-sm p-6 mb-8 w-full">
+        <div
+          className={`rounded-xl shadow-lg p-6 mb-8 w-full transition-all duration-300 ${
+            darkMode ? 'bg-gray-800' : 'bg-white'
+          }`}
+        >
           <div className="flex flex-col lg:flex-row gap-4">
-            <div className="flex-1 relative">
-              <Search className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+            <div className="flex-1 relative group">
+              <Search
+                className={`absolute left-3 top-3 w-5 h-5 transition-colors ${
+                  darkMode ? 'text-gray-400' : 'text-gray-400'
+                }`}
+              />
               <input
                 type="text"
                 placeholder="Search products, providers, or descriptions..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                className={`w-full pl-10 pr-4 py-3 border rounded-lg transition-all duration-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent ${
+                  darkMode
+                    ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400'
+                    : 'bg-white border-gray-300 text-gray-900'
+                }`}
               />
             </div>
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="px-6 py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition flex items-center justify-center space-x-2"
+              className={`px-6 py-3 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 ${
+                darkMode
+                  ? 'bg-gray-700 text-gray-200 hover:bg-gray-600'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              }`}
             >
               <Filter className="w-5 h-5" />
               <span>Advanced Filters</span>
@@ -1872,15 +2399,29 @@ const App = () => {
           </div>
 
           {showFilters && (
-            <div className="mt-4 pt-4 border-t border-gray-200 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div
+              className={`mt-4 pt-4 border-t grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 animate-fadeIn ${
+                darkMode ? 'border-gray-700' : 'border-gray-200'
+              }`}
+            >
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Data Type</label>
+                <label
+                  className={`block text-sm font-medium mb-2 ${
+                    darkMode ? 'text-gray-300' : 'text-gray-700'
+                  }`}
+                >
+                  Data Type
+                </label>
                 <select
                   value={selectedType}
                   onChange={(e) => setSelectedType(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                  className={`w-full px-3 py-2 border rounded-lg transition-colors focus:ring-2 focus:ring-indigo-500 ${
+                    darkMode
+                      ? 'bg-gray-700 border-gray-600 text-white'
+                      : 'bg-white border-gray-300 text-gray-900'
+                  }`}
                 >
-                  {dataTypes.map(type => (
+                  {dataTypes.map((type) => (
                     <option key={type} value={type}>
                       {type === 'all' ? 'All Types' : type}
                     </option>
@@ -1889,13 +2430,23 @@ const App = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Format</label>
+                <label
+                  className={`block text-sm font-medium mb-2 ${
+                    darkMode ? 'text-gray-300' : 'text-gray-700'
+                  }`}
+                >
+                  Format
+                </label>
                 <select
                   value={selectedFormat}
                   onChange={(e) => setSelectedFormat(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                  className={`w-full px-3 py-2 border rounded-lg transition-colors focus:ring-2 focus:ring-indigo-500 ${
+                    darkMode
+                      ? 'bg-gray-700 border-gray-600 text-white'
+                      : 'bg-white border-gray-300 text-gray-900'
+                  }`}
                 >
-                  {formats.map(format => (
+                  {formats.map((format) => (
                     <option key={format} value={format}>
                       {format === 'all' ? 'All Formats' : format}
                     </option>
@@ -1904,13 +2455,23 @@ const App = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Region</label>
+                <label
+                  className={`block text-sm font-medium mb-2 ${
+                    darkMode ? 'text-gray-300' : 'text-gray-700'
+                  }`}
+                >
+                  Region
+                </label>
                 <select
                   value={selectedRegion}
                   onChange={(e) => setSelectedRegion(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                  className={`w-full px-3 py-2 border rounded-lg transition-colors focus:ring-2 focus:ring-indigo-500 ${
+                    darkMode
+                      ? 'bg-gray-700 border-gray-600 text-white'
+                      : 'bg-white border-gray-300 text-gray-900'
+                  }`}
                 >
-                  {regions.map(region => (
+                  {regions.map((region) => (
                     <option key={region} value={region}>
                       {region === 'all' ? 'All Regions' : region}
                     </option>
@@ -1919,29 +2480,25 @@ const App = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Pricing</label>
+                <label
+                  className={`block text-sm font-medium mb-2 ${
+                    darkMode ? 'text-gray-300' : 'text-gray-700'
+                  }`}
+                >
+                  Pricing
+                </label>
                 <select
                   value={priceFilter}
                   onChange={(e) => setPriceFilter(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+                  className={`w-full px-3 py-2 border rounded-lg transition-colors focus:ring-2 focus:ring-indigo-500 ${
+                    darkMode
+                      ? 'bg-gray-700 border-gray-600 text-white'
+                      : 'bg-white border-gray-300 text-gray-900'
+                  }`}
                 >
                   <option value="all">All Pricing</option>
                   <option value="free">Free Only</option>
                   <option value="paid">Paid Only</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Minimum Rating</label>
-                <select
-                  value={minRating}
-                  onChange={(e) => setMinRating(Number(e.target.value))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
-                >
-                  <option value="0">All Ratings</option>
-                  <option value="3">3+ Stars</option>
-                  <option value="4">4+ Stars</option>
-                  <option value="4.5">4.5+ Stars</option>
                 </select>
               </div>
             </div>
@@ -1950,16 +2507,24 @@ const App = () => {
 
         {/* Categories */}
         <div className="mb-8">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Browse by Category</h2>
+          <h2
+            className={`text-xl font-semibold mb-4 ${
+              darkMode ? 'text-white' : 'text-gray-900'
+            }`}
+          >
+            Browse by Category
+          </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-            {categories.map(category => (
+            {categories.map((category) => (
               <button
                 key={category.id}
                 onClick={() => setSelectedCategory(category.id)}
-                className={`p-4 rounded-lg text-center transition ${
+                className={`p-4 rounded-lg text-center transition-all duration-300 transform hover:scale-105 ${
                   selectedCategory === category.id
                     ? 'bg-indigo-600 text-white shadow-lg font-semibold'
-                    : 'bg-white text-gray-700 hover:bg-gray-50 shadow-sm'
+                    : darkMode
+                    ? 'bg-gray-800 text-gray-200 hover:bg-gray-700 shadow-md'
+                    : 'bg-white text-gray-700 hover:bg-gray-50 shadow-md'
                 }`}
               >
                 <div className="text-3xl mb-2">{category.icon}</div>
@@ -1970,150 +2535,340 @@ const App = () => {
         </div>
 
         {/* Results Count */}
-        <div className="mb-4 text-gray-600">
-          Found <span className="font-semibold">{filteredProducts.length}</span> products
+        <div className={`mb-4 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+          Found <span className="font-semibold">{filteredProducts.length}</span>{' '}
+          products
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {filteredProducts.map(product => (
-            <div key={product.id} className="bg-white rounded-xl shadow-sm hover:shadow-md transition p-6">
-              <div className="flex items-start justify-between mb-3">
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">{product.name}</h3>
-                  <p className="text-sm text-gray-600">{product.provider}</p>
+        {isLoading ? (
+          <div className="flex items-center justify-center py-20">
+            <Loader
+              className={`w-12 h-12 animate-spin ${
+                darkMode ? 'text-indigo-400' : 'text-indigo-600'
+              }`}
+            />
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {filteredProducts.map((product) => (
+              <div
+                key={product.id}
+                className={`rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 transform hover:-translate-y-1 ${
+                  darkMode ? 'bg-gray-800' : 'bg-white'
+                }`}
+              >
+                <div className="flex items-start justify-between mb-3">
+                  <div className="flex-1">
+                    <h3
+                      className={`text-xl font-bold mb-1 ${
+                        darkMode ? 'text-white' : 'text-gray-900'
+                      }`}
+                    >
+                      {product.name}
+                    </h3>
+                    <p
+                      className={`text-sm ${
+                        darkMode ? 'text-gray-400' : 'text-gray-600'
+                      }`}
+                    >
+                      {product.provider}
+                    </p>
+                  </div>
+                  <div
+                    className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                      product.pricing === 'Free' ||
+                      product.pricing.includes('Free')
+                        ? 'bg-green-100 text-green-700'
+                        : 'bg-blue-100 text-blue-700'
+                    }`}
+                  >
+                    {product.pricing}
+                  </div>
                 </div>
-                <div className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                  product.pricing === 'Free' || product.pricing.includes('Free')
-                    ? 'bg-green-100 text-green-700' 
-                    : 'bg-blue-100 text-blue-700'
-                }`}>
-                  {product.pricing}
-                </div>
-              </div>
 
-              <div className="flex items-center space-x-4 mb-3">
-                <RatingStars rating={product.rating} />
-                <div className="flex items-center space-x-1 text-sm text-gray-600">
-                  <Download className="w-4 h-4" />
-                  <span>{product.downloads}</span>
+                <div className="flex items-center space-x-4 mb-3">
+                  <RatingStars rating={product.rating} darkMode={darkMode} />
+                  <div
+                    className={`flex items-center space-x-1 text-sm ${
+                      darkMode ? 'text-gray-400' : 'text-gray-600'
+                    }`}
+                  >
+                    <Download className="w-4 h-4" />
+                    <span>{product.downloads}</span>
+                  </div>
                 </div>
-              </div>
 
-              <p className="text-gray-700 mb-4 text-sm">{product.description}</p>
+                <p
+                  className={`mb-4 text-sm ${
+                    darkMode ? 'text-gray-300' : 'text-gray-700'
+                  }`}
+                >
+                  {product.description}
+                </p>
 
-              <div className="grid grid-cols-2 gap-3 mb-4">
-                <div className="flex items-center space-x-2 text-sm">
-                  <MapPin className="w-4 h-4 text-gray-400" />
-                  <span className="text-gray-600 truncate">{product.coverage}</span>
-                </div>
-                <div className="flex items-center space-x-2 text-sm">
-                  <Database className="w-4 h-4 text-gray-400" />
-                  <span className="text-gray-600 truncate">{product.type}</span>
-                </div>
-                <div className="flex items-center space-x-2 text-sm">
-                  <Calendar className="w-4 h-4 text-gray-400" />
-                  <span className="text-gray-600 truncate">{product.updateFrequency}</span>
-                </div>
-                <div className="flex items-center space-x-2 text-sm">
-                  <Code className="w-4 h-4 text-gray-400" />
-                  <span className="text-gray-600 truncate">{product.license}</span>
-                </div>
-                <div className="flex items-center space-x-2 text-sm">
-                  <Layers className="w-4 h-4 text-gray-400" />
-                  <span className="text-gray-600 truncate">{product.resolution}</span>
-                </div>
-                <div className="flex items-center space-x-2 text-sm">
-                  <Users className="w-4 h-4 text-gray-400" />
-                  <span className="text-gray-600 truncate text-xs">{product.contact}</span>
-                </div>
-              </div>
-
-              <div className="mb-4">
-                <div className="text-xs font-semibold text-gray-600 mb-2">Supported Formats:</div>
-                <div className="flex flex-wrap gap-2">
-                  {product.formats.map((format, idx) => (
-                    <span key={idx} className="px-2 py-1 bg-blue-50 text-blue-700 rounded text-xs font-medium">
-                      {format}
+                <div className="grid grid-cols-2 gap-3 mb-4">
+                  <div className="flex items-center space-x-2 text-sm">
+                    <MapPin
+                      className={`w-4 h-4 ${
+                        darkMode ? 'text-gray-500' : 'text-gray-400'
+                      }`}
+                    />
+                    <span
+                      className={`truncate ${
+                        darkMode ? 'text-gray-400' : 'text-gray-600'
+                      }`}
+                    >
+                      {product.coverage}
                     </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="mb-4">
-                <div className="text-xs font-semibold text-gray-600 mb-2">Data Types:</div>
-                <div className="flex flex-wrap gap-2">
-                  {product.dataTypes.map((tag, idx) => (
-                    <span key={idx} className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">
-                      {tag}
+                  </div>
+                  <div className="flex items-center space-x-2 text-sm">
+                    <Database
+                      className={`w-4 h-4 ${
+                        darkMode ? 'text-gray-500' : 'text-gray-400'
+                      }`}
+                    />
+                    <span
+                      className={`truncate ${
+                        darkMode ? 'text-gray-400' : 'text-gray-600'
+                      }`}
+                    >
+                      {product.type}
                     </span>
-                  ))}
+                  </div>
+                  <div className="flex items-center space-x-2 text-sm">
+                    <Calendar
+                      className={`w-4 h-4 ${
+                        darkMode ? 'text-gray-500' : 'text-gray-400'
+                      }`}
+                    />
+                    <span
+                      className={`truncate ${
+                        darkMode ? 'text-gray-400' : 'text-gray-600'
+                      }`}
+                    >
+                      {product.updateFrequency}
+                    </span>
+                  </div>
+                  <div className="flex items-center space-x-2 text-sm">
+                    <Code
+                      className={`w-4 h-4 ${
+                        darkMode ? 'text-gray-500' : 'text-gray-400'
+                      }`}
+                    />
+                    <span
+                      className={`truncate ${
+                        darkMode ? 'text-gray-400' : 'text-gray-600'
+                      }`}
+                    >
+                      {product.license}
+                    </span>
+                  </div>
+                  <div className="flex items-center space-x-2 text-sm">
+                    <Layers
+                      className={`w-4 h-4 ${
+                        darkMode ? 'text-gray-500' : 'text-gray-400'
+                      }`}
+                    />
+                    <span
+                      className={`truncate ${
+                        darkMode ? 'text-gray-400' : 'text-gray-600'
+                      }`}
+                    >
+                      {product.resolution}
+                    </span>
+                  </div>
+                  <div className="flex items-center space-x-2 text-sm">
+                    <Users
+                      className={`w-4 h-4 ${
+                        darkMode ? 'text-gray-500' : 'text-gray-400'
+                      }`}
+                    />
+                    <span
+                      className={`truncate text-xs ${
+                        darkMode ? 'text-gray-400' : 'text-gray-600'
+                      }`}
+                    >
+                      {product.contact}
+                    </span>
+                  </div>
                 </div>
-              </div>
 
-              {product.standards && (
                 <div className="mb-4">
-                  <div className="text-xs font-semibold text-gray-600 mb-2">Standards:</div>
+                  <div
+                    className={`text-xs font-semibold mb-2 ${
+                      darkMode ? 'text-gray-400' : 'text-gray-600'
+                    }`}
+                  >
+                    Supported Formats:
+                  </div>
                   <div className="flex flex-wrap gap-2">
-                    {product.standards.map((standard, idx) => (
-                      <span key={idx} className="px-2 py-1 bg-purple-50 text-purple-700 rounded text-xs font-medium flex items-center space-x-1">
-                        <Award className="w-3 h-3" />
-                        <span>{standard}</span>
+                    {product.formats.map((format, idx) => (
+                      <span
+                        key={idx}
+                        className={`px-2 py-1 rounded text-xs font-medium ${
+                          darkMode
+                            ? 'bg-blue-900 text-blue-200'
+                            : 'bg-blue-50 text-blue-700'
+                        }`}
+                      >
+                        {format}
                       </span>
                     ))}
                   </div>
                 </div>
-              )}
 
-              <div className="flex space-x-2">
-                <a
-                  href={product.directLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 flex items-center justify-center space-x-2 px-4 py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition"
-                >
-                  <span>Access Database</span>
-                  <ExternalLink className="w-4 h-4" />
-                </a>
-                {product.apiDocs && (
+                <div className="mb-4">
+                  <div
+                    className={`text-xs font-semibold mb-2 ${
+                      darkMode ? 'text-gray-400' : 'text-gray-600'
+                    }`}
+                  >
+                    Data Types:
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {product.dataTypes.map((tag, idx) => (
+                      <span
+                        key={idx}
+                        className={`px-2 py-1 rounded text-xs ${
+                          darkMode
+                            ? 'bg-gray-700 text-gray-300'
+                            : 'bg-gray-100 text-gray-700'
+                        }`}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {product.standards && (
+                  <div className="mb-4">
+                    <div
+                      className={`text-xs font-semibold mb-2 ${
+                        darkMode ? 'text-gray-400' : 'text-gray-600'
+                      }`}
+                    >
+                      Standards:
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {product.standards.map((standard, idx) => (
+                        <span
+                          key={idx}
+                          className={`px-2 py-1 rounded text-xs font-medium flex items-center space-x-1 ${
+                            darkMode
+                              ? 'bg-purple-900 text-purple-200'
+                              : 'bg-purple-50 text-purple-700'
+                          }`}
+                        >
+                          <Award className="w-3 h-3" />
+                          <span>{standard}</span>
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                <div className="flex space-x-2">
                   <a
-                    href={product.apiDocs}
+                    href={product.directLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center space-x-2 px-4 py-2 bg-gray-100 text-gray-700 font-semibold rounded-lg hover:bg-gray-200 transition"
-                    title="API Documentation"
+                    className="flex-1 flex items-center justify-center space-x-2 px-4 py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition-all duration-300 transform hover:scale-105"
                   >
-                    <Code className="w-4 h-4" />
-                    <span className="hidden sm:inline">API Docs</span>
+                    <span>Access Database</span>
+                    <ExternalLink className="w-4 h-4" />
                   </a>
-                )}
+                  {product.apiDocs && (
+                    <a
+                      href={product.apiDocs}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`flex items-center justify-center space-x-2 px-4 py-2 font-semibold rounded-lg transition-all duration-300 ${
+                        darkMode
+                          ? 'bg-gray-700 text-gray-200 hover:bg-gray-600'
+                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      }`}
+                      title="API Documentation"
+                    >
+                      <Code className="w-4 h-4" />
+                      <span className="hidden sm:inline">API Docs</span>
+                    </a>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
 
-        {filteredProducts.length === 0 && (
+        {filteredProducts.length === 0 && !isLoading && (
           <div className="text-center py-12">
-            <div className="text-gray-400 mb-4">
+            <div
+              className={`mb-4 ${darkMode ? 'text-gray-600' : 'text-gray-400'}`}
+            >
               <Search className="w-16 h-16 mx-auto" />
             </div>
-            <h3 className="text-xl font-semibold text-gray-700 mb-2">No products found</h3>
-            <p className="text-gray-600">Try adjusting your search or filters</p>
+            <h3
+              className={`text-xl font-semibold mb-2 ${
+                darkMode ? 'text-gray-300' : 'text-gray-700'
+              }`}
+            >
+              No products found
+            </h3>
+            <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>
+              Try adjusting your search or filters
+            </p>
           </div>
         )}
       </div>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-gray-200 mt-16 w-full">
-        <div className="max-w-7xl mx-auto px-4 py-8 text-center text-gray-600 w-full">
-          <p className="mb-2">Spatial Yellowpage - Your Gateway to Global Spatial Data</p>
-          <p className="text-sm">Comprehensive directory of {products.length}+ spatial products worldwide</p>
-          <p className="text-xs mt-2 text-gray-500">Covering satellite imagery, vector data, elevation, climate, tools, APIs, and more</p>
+      <footer
+        className={`border-t mt-16 w-full transition-colors duration-300 ${
+          darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'
+        }`}
+      >
+        <div
+          className={`max-w-7xl mx-auto px-4 py-8 text-center w-full ${
+            darkMode ? 'text-gray-400' : 'text-gray-600'
+          }`}
+        >
+          <p className="mb-2">
+            Spatial Yellowpage - Your Gateway to Global Spatial Data
+          </p>
+          <p className="text-sm">
+            Comprehensive directory of {products.length}+ spatial products
+            worldwide
+          </p>
+          <p
+            className={`text-xs mt-2 ${
+              darkMode ? 'text-gray-500' : 'text-gray-500'
+            }`}
+          >
+            Covering satellite imagery, vector data, elevation, climate, tools,
+            APIs, and more
+          </p>
         </div>
       </footer>
 
       {/* Submission Modal */}
-      {showSubmissionForm && <SubmissionModal />}
+      {showSubmissionForm && <SubmissionModal darkMode={darkMode} />}
+
+      <style>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 0.3s ease-out;
+        }
+      `}</style>
     </div>
   );
 };
