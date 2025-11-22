@@ -4791,7 +4791,7 @@ const App = () => {
           }`}
         >
           <p className="mb-2">
-            Spatial Yellowpage - Your Gateway to Global Spatial Data
+          ©Spatial Yellowpage - Your Gateway to Global Spatial Data
           </p>
           <p className="text-sm">
             Comprehensive directory of {products.length}+ spatial products
@@ -4802,8 +4802,9 @@ const App = () => {
               darkMode ? 'text-gray-500' : 'text-gray-500'
             }`}
           >
-            Covering satellite imagery, vector data, elevation, climate, tools,
-            APIs, and more
+            Data compiled from: Ochwada, L. N., & Ochwada, A. W. (2024). 
+           <em>Free Geospatial Data Resources</em> (Version 1). Covering satellite imagery, 
+            vector data, elevation, climate, and 300+ free global datasets.
           </p>
         </div>
       </footer>
