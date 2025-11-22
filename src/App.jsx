@@ -3212,28 +3212,6 @@ const App = () => {
   },
   {
     id: 140,
-    name: 'OpenCelliD',
-    provider: 'Unwired Labs',
-    category: 'telecom',
-    type: 'Cell Tower Database',
-    coverage: 'Global',
-    region: 'Global',
-    description: "World's largest open database of cell tower locations for geolocation and telecommunications analysis.",
-    pricing: 'Freemium',
-    updateFrequency: 'Real-time',
-    license: 'CC-BY-SA',
-    directLink: 'https://opencellid.org/',
-    apiDocs: 'https://opencellid.org/api',
-    dataTypes: ['Cell Towers', 'Mobile Networks', 'Geolocation'],
-    formats: ['CSV', 'REST API'],
-    resolution: 'Point Data',
-    contact: 'info@opencellid.org',
-    rating: 4.3,
-    downloads: '2M+',
-    standards: ['OpenCellID']
-  },
-  {
-    id: 141,
     name: 'Undersea Telecommunications Cables',
     provider: 'TeleGeography',
     category: 'telecom',
@@ -3255,7 +3233,7 @@ const App = () => {
     standards: ['ISO 19115']
   },
   {
-    id: 142,
+    id: 141,
     name: 'World Port Index',
     provider: 'National Geospatial-Intelligence Agency',
     category: 'transportation',
@@ -3277,7 +3255,7 @@ const App = () => {
     standards: ['NGA']
   },
   {
-    id: 143,
+    id: 142,
     name: 'GeoNames',
     provider: 'GeoNames',
     category: 'urban',
@@ -3299,7 +3277,7 @@ const App = () => {
     standards: ['ISO 3166']
   },
   {
-    id: 144,
+    id: 143,
     name: 'G-Econ',
     provider: 'Yale University',
     category: 'urban',
@@ -3321,7 +3299,7 @@ const App = () => {
     standards: ['ISO 19115']
   },
   {
-    id: 145,
+    id: 144,
     name: 'GAR15 Global Assessment of Risk',
     provider: 'UNDRR',
     category: 'disaster',
@@ -3343,7 +3321,7 @@ const App = () => {
     standards: ['ISO 19115']
   },
   {
-    id: 146,
+    id: 145,
     name: 'Africa GeoPortal',
     provider: 'Esri',
     category: 'regional',
@@ -3365,7 +3343,7 @@ const App = () => {
     standards: ['OGC', 'Esri']
   },
   {
-    id: 147,
+    id: 146,
     name: 'Arctic Data Center',
     provider: 'NSF Arctic Data Center',
     category: 'environment',
@@ -3387,7 +3365,7 @@ const App = () => {
     standards: ['ISO 19115']
   },
   {
-    id: 148,
+    id: 147,
     name: 'Antarctic Digital Database (ADD)',
     provider: 'British Antarctic Survey',
     category: 'environment',
@@ -3409,7 +3387,7 @@ const App = () => {
     standards: ['SCAR', 'ISO 19115']
   },
   {
-    id: 149,
+    id: 148,
     name: 'BEDMAP2',
     provider: 'British Antarctic Survey',
     category: 'environment',
@@ -3431,7 +3409,7 @@ const App = () => {
     standards: ['ISO 19115']
   },
   {
-    id: 150,
+    id: 149,
     name: 'Quantarctica',
     provider: 'Norwegian Polar Institute',
     category: 'environment',
@@ -3453,7 +3431,7 @@ const App = () => {
     standards: ['OGC', 'ISO 19115']
   },
   {
-    id: 151,
+    id: 150,
     name: 'IPA Circum-arctic Permafrost Map',
     provider: 'International Permafrost Association',
     category: 'environment',
@@ -3475,7 +3453,7 @@ const App = () => {
     standards: ['ISO 19115']
   },
   {
-    id: 152,
+    id: 151,
     name: 'China Historical GIS (CHGIS)',
     provider: 'Harvard University',
     category: 'research',
@@ -3497,7 +3475,7 @@ const App = () => {
     standards: ['ISO 19115']
   },
   {
-    id: 153,
+    id: 152,
     name: 'Geoscience Australia',
     provider: 'Australian Government',
     category: 'regional',
@@ -3519,7 +3497,7 @@ const App = () => {
     standards: ['OGC', 'ISO 19115']
   },
   {
-    id: 154,
+    id: 153,
     name: 'LINZ Data Service',
     provider: 'Land Information New Zealand',
     category: 'regional',
@@ -3541,7 +3519,7 @@ const App = () => {
     standards: ['OGC', 'ISO 19115']
   },
   {
-    id: 155,
+    id: 154,
     name: 'Statistics Canada Boundary Files',
     provider: 'Statistics Canada',
     category: 'regional',
@@ -3563,7 +3541,7 @@ const App = () => {
     standards: ['ISO 19115']
   },
   {
-    id: 156,
+    id: 155,
     name: 'U.S. Census Bureau TIGER/Line',
     provider: 'U.S. Census Bureau',
     category: 'regional',
@@ -3585,7 +3563,7 @@ const App = () => {
     standards: ['FGDC', 'ISO 19115']
   },
   {
-    id: 157,
+    id: 156,
     name: 'USGS Earth Explorer',
     provider: 'U.S. Geological Survey',
     category: 'basemaps',
@@ -3607,7 +3585,7 @@ const App = () => {
     standards: ['ISO 19115', 'FGDC']
   },
   {
-    id: 158,
+    id: 157,
     name: 'U.S. National Land Cover Database',
     provider: 'USGS',
     category: 'environment',
@@ -3629,7 +3607,7 @@ const App = () => {
     standards: ['ISO 19115']
   },
   {
-    id: 159,
+    id: 158,
     name: 'PRISM Climate Data',
     provider: 'Oregon State University',
     category: 'environment',
@@ -3651,7 +3629,7 @@ const App = () => {
     standards: ['ISO 19115']
   },
   {
-    id: 160,
+    id: 159,
     name: 'IGN France',
     provider: 'Institut National de l\'Information Géographique et Forestière',
     category: 'regional',
@@ -3673,7 +3651,7 @@ const App = () => {
     standards: ['INSPIRE', 'OGC']
   },
   {
-    id: 161,
+    id: 160,
     name: 'Ordnance Survey Open Data',
     provider: 'Ordnance Survey UK',
     category: 'regional',
@@ -3695,7 +3673,7 @@ const App = () => {
     standards: ['INSPIRE', 'OGC']
   },
   {
-    id: 162,
+    id: 161,
     name: 'GovData Germany',
     provider: 'German Federal Government',
     category: 'regional',
