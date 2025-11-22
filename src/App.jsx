@@ -4804,7 +4804,8 @@ const App = () => {
           >
             Data compiled from: Ochwada, L. N., & Ochwada, A. W. (2024). 
            <em>Free Geospatial Data Resources</em> (Version 1). Covering satellite imagery, 
-            vector data, elevation, climate, and 300+ free global datasets.
+            vector data, elevation, climate, and 300+ free global datasets. <br></br>
+            Developed by Chidimma C Maduka (https://www.linkedin.com/in/chidimmacmaduka/)
           </p>
         </div>
       </footer>
