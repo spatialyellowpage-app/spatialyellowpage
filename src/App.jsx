@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Search, MapPin, Globe, Filter, ExternalLink, Database, Code, Calendar, Tag, X, Send, Star, Download, Users, Award, Layers } from 'lucide-react';
+import { Search, MapPin, Globe, Filter, ExternalLink, Database, Code, Calendar, Tag, X, Send, Star, Download, Users, Award, Layers, Moon, Sun, Loader } from 'lucide-react';
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -11,6 +11,8 @@ const App = () => {
   const [minRating, setMinRating] = useState(0);
   const [showFilters, setShowFilters] = useState(false);
   const [showSubmissionForm, setShowSubmissionForm] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const categories = [
     { id: 'all', name: 'All Categories', icon: '🌍' },
