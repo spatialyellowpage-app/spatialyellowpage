@@ -4813,6 +4813,7 @@ const App = () => {
       {/* Submission Modal */}
       {showSubmissionForm && <SubmissionModal darkMode={darkMode} />}
 
+  
       <style>{`
         @keyframes fadeIn {
           from {
