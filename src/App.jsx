@@ -4733,7 +4733,7 @@ const App = () => {
                     rel="noopener noreferrer"
                     className="flex-1 flex items-center justify-center space-x-2 px-4 py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition-all duration-300 transform hover:scale-105"
                   >
-                    <span>Access Database</span>
+                    <span>Access Directory</span>
                     <ExternalLink className="w-4 h-4" />
                   </a>
                   {product.apiDocs && (
