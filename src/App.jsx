@@ -3806,12 +3806,10 @@ const App = () => {
           body: formDataToSend,
         });
     
-        // With no-cors, we can't read the response, so we assume success
         // Store submitted data for preview
         setSubmittedData(formData);
+        setIsLoading(false);
         
-        alert("Product submitted successfully! We'll review it and add it to the directory soon.");
-    
         // Reset form
         setFormData({
           name: '',
@@ -3831,16 +3829,22 @@ const App = () => {
           resolution: '',
           contact: '',
         });
-        
-        setIsLoading(false);
       } catch (err) {
         setIsLoading(false);
         console.error("Submission error:", err);
-        // Even if there's an error, the data might have been sent
-        alert("Submission initiated. If you filled all required fields correctly, your product should be under review.");
+        // Store data anyway for preview
+        setSubmittedData(formData);
       }
     };
-    
+
+    const handleClosePreview = () => {
+      setSubmittedData(null);
+      setShowSubmissionForm(false);
+    };
+
+    const handleSubmitAnother = () => {
+      setSubmittedData(null);
+    };
      
 
     return (
