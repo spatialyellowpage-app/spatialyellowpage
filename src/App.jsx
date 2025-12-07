@@ -3787,12 +3787,56 @@ const App = () => {
       contact: '',
     });
 
-    const handleSubmit = (e) => {
+    const [submittedData, setSubmittedData] = useState(null);
+
+    const handleSubmit = async (e) => {
       e.preventDefault();
-      console.log('Submitted:', formData);
-      alert('Thank you! Your submission will be reviewed.');
-      setShowSubmissionForm(false);
+    
+      try {
+        const response = await fetch("https://script.google.com/macros/s/AKfycbwZYLQSxSOFiGmiqmgb97CU7zOaXU9UiS0vuLXtBnFwS7Z8fut2he2KCzC07sCn4qSnBQ/exec", {
+          method: "POST",
+          body: JSON.stringify(formData),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+    
+        const result = await response.json();
+    
+        if (result.status === "success") {
+          alert("Product submitted successfully!");
+    
+          // Store submitted data for preview
+          setSubmittedData(formData);
+    
+          // Reset form
+          setFormData({
+            name: '',
+            provider: '',
+            category: 'urban',
+            type: '',
+            coverage: '',
+            region: 'Global',
+            description: '',
+            pricing: '',
+            updateFrequency: '',
+            license: '',
+            directLink: '',
+            apiDocs: '',
+            dataTypes: '',
+            formats: '',
+            resolution: '',
+            contact: '',
+          });
+        } else {
+          alert("Error: " + result.message);
+        }
+      } catch (err) {
+        alert("Submission failed: " + err.message);
+      }
     };
+    
+     
 
     return (
       <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 animate-fadeIn">
@@ -4245,6 +4289,27 @@ const App = () => {
               </button>
             </div>
           </form>
+          {submittedData && (
+  <div className="mt-6">
+    <div className="p-4 border rounded-lg bg-gray-50 dark:bg-gray-700">
+      <h3 className="text-lg font-semibold mb-2">Submitted Product Preview:</h3>
+      <ul className="text-sm space-y-1">
+        {Object.entries(submittedData).map(([key, value]) => (
+          <li key={key}>
+            <strong>{key.charAt(0).toUpperCase() + key.slice(1)}:</strong> {value || 'N/A'}
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <button
+      onClick={() => setSubmittedData(null)}
+      className="mt-4 px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700"
+    >
+      Submit Another Product
+    </button>
+  </div>
+)}
         </div>
       </div>
     );
