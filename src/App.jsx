@@ -1,4 +1,5 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
+import productsData from './data.json';
 import {
   Search,
   MapPin,
@@ -34,14 +35,7 @@ const App = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const [products, setProducts] = useState([]);
-
-useEffect(() => {
-  fetch('/data.json')
-    .then((res) => res.json())
-    .then((data) => setProducts(data))
-    .catch((err) => console.error('Failed to load products:', err));
-}, []);
+const [products, setProducts] = useState(productsData);
 
   const categories = [
     { id: 'all', name: 'All Categories', icon: '🌍' },
